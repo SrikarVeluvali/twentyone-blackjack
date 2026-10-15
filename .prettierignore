@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.vercel/
+.data/
+.env*
+artifacts/
+package-lock.json
+next-env.d.ts
+*.tsbuildinfo
+.agents/
+skills-lock.json

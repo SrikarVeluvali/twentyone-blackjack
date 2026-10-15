@@ -1,0 +1,7755 @@
+:root {
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+body {
+  background: #0c201c;
+  font-family: var(--club-font), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  color: inherit;
+  border: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+input,
+select {
+  touch-action: manipulation;
+}
+button {
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s,
+    box-shadow 0.18s;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+button svg {
+  pointer-events: none;
+}
+svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+strong,
+b {
+  font-weight: 600;
+}
+.casino-app {
+  --bg: #0c201c;
+  --surface: #142d26;
+  --surface-2: #1b382f;
+  --surface-3: #234639;
+  --text: #f2efdf;
+  --muted: #a5b8aa;
+  --subtle: #7f9b89;
+  --line: #ffffff14;
+  --gold: #d5b67b;
+  --gold-soft: #d5b67b16;
+  --primary: #ddc18b;
+  --primary-text: #192c22;
+  --danger: #ffc2b3;
+  --danger-bg: #ae4d3920;
+  --danger-border: #d6897152;
+  --shadow: #05110d45;
+  --felt: #184b37;
+  --header-h: 72px;
+  color: var(--text);
+  background: var(--bg);
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: var(--header-h) minmax(0, 1fr);
+  overflow: hidden;
+  background-image: radial-gradient(ellipse at 30% 40%, #2a543524, transparent 65%);
+  font-size: 14px;
+  isolation: isolate;
+}
+.casino-app[data-theme='light'] {
+  color-scheme: light;
+  --bg: #e9eee5;
+  --surface: #f9fbf5;
+  --surface-2: #edf2e8;
+  --surface-3: #dce7d7;
+  --text: #193d30;
+  --muted: #566e5d;
+  --subtle: #607963;
+  --line: #183e301c;
+  --gold: #89652c;
+  --gold-soft: #b997551a;
+  --primary: #22593f;
+  --primary-text: #fff9e9;
+  --danger: #9f3b2e;
+  --danger-bg: #b24b3410;
+  --danger-border: #b24b3445;
+  --shadow: #1d3e3210;
+}
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 32px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+.brand-emblem {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 43px;
+  background: var(--gold);
+  color: var(--bg);
+  border-radius: 8px;
+  transform: rotate(-9deg);
+  box-shadow: 0 3px 0 #0002;
+}
+.brand-emblem svg {
+  width: 25px;
+  height: 25px;
+}
+.brand > span:last-child {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1.2px;
+}
+.brand > span:last-child > span {
+  font-weight: 400;
+}
+.brand small {
+  display: block;
+  margin-top: 8px;
+  font-size: 6px;
+  letter-spacing: 2.2px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 5px;
+}
+.main-nav button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  height: 37px;
+  padding: 0 17px;
+  border-radius: 7px;
+  color: var(--muted);
+  background: transparent;
+  font-size: 12px;
+}
+.main-nav button.selected {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+.main-nav button:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.main-nav button svg {
+  width: 17px;
+  height: 17px;
+}
+.main-nav .status-dot {
+  width: 4px;
+  height: 4px;
+}
+.header-tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  flex: 1;
+}
+.virtual-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: var(--subtle);
+  margin-right: 14px;
+  white-space: nowrap;
+}
+.virtual-badge svg {
+  width: 14px;
+  height: 14px;
+}
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  color: var(--muted);
+  background: transparent;
+  flex-shrink: 0;
+}
+.icon-button:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+.icon-button svg {
+  width: 18px;
+  height: 18px;
+}
+.theme-toggle {
+  color: var(--gold);
+  background: var(--gold-soft);
+  border: 1px solid #aa8d4e30;
+}
+.icon-button.bordered {
+  border: 1px solid var(--line);
+}
+.icon-button:disabled {
+  opacity: 0.32;
+}
+.game-viewport {
+  min-width: 0;
+  min-height: 0;
+  padding: 20px 28px 22px;
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  min-height: 43px;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.button svg {
+  width: 17px;
+  height: 17px;
+}
+.button.primary {
+  color: var(--primary-text);
+  background: var(--primary);
+  box-shadow:
+    inset 0 1px 0 #fff3,
+    0 3px 0 #0002;
+}
+.button.primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--primary), white 12%);
+  box-shadow:
+    inset 0 1px 0 #fff3,
+    0 4px 15px #b4954d20;
+}
+.button.secondary {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+.button.secondary:hover:not(:disabled) {
+  background: var(--surface-3);
+  border-color: color-mix(in srgb, var(--gold), transparent 65%);
+}
+.button.danger {
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger);
+}
+.button.danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--danger-bg), var(--danger) 12%);
+}
+.button:disabled {
+  opacity: 0.42;
+  box-shadow: none;
+}
+.full {
+  width: 100%;
+}
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  box-shadow: 0 12px 32px var(--shadow);
+  min-width: 0;
+  min-height: 0;
+}
+.overline {
+  color: var(--gold);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.status-dot,
+.connection-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a8d8a5;
+  flex-shrink: 0;
+}
+.connection-dot {
+  box-shadow: 0 0 0 4px #93ca8c10;
+}
+.connection-dot.offline {
+  background: #eaac77;
+}
+.segmented {
+  display: flex;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 4px;
+  gap: 4px;
+}
+.segmented button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  padding: 10px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+}
+.segmented button.selected {
+  background: var(--surface-3);
+  color: var(--text);
+  border-color: var(--line);
+  box-shadow: 0 2px 4px #0001;
+}
+.segmented button svg {
+  width: 15px;
+  height: 15px;
+}
+label,
+.field-label {
+  color: var(--muted);
+  display: block;
+  font-size: 11px;
+}
+input,
+select {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 8px;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+input::placeholder {
+  color: var(--subtle);
+}
+select {
+  padding: 10px 9px;
+  color: var(--text);
+}
+select option {
+  color: var(--text);
+  background: var(--surface);
+}
+.lounge-screen {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.85fr);
+  grid-template-rows: minmax(0, 1fr) 24px;
+  gap: 16px 40px;
+  max-width: 1230px;
+  margin: auto;
+  align-items: center;
+}
+.lounge-scene {
+  height: 100%;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+}
+.lounge-copy {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex-shrink: 0;
+}
+.club-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 9px;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.club-label > span {
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.45;
+}
+.lounge-copy h1 {
+  font-size: clamp(38px, 4.6vw, 68px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -2.8px;
+}
+.lounge-copy p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+.lounge-art {
+  position: relative;
+  height: clamp(170px, 35vh, 350px);
+  width: min(100%, 440px);
+  flex-shrink: 1;
+  min-height: 130px;
+}
+.art-ring {
+  position: absolute;
+  width: 320px;
+  height: 255px;
+  border: 1px solid var(--gold);
+  opacity: 0.09;
+  border-radius: 50%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%) rotate(-13deg);
+}
+.ring-inner {
+  width: 270px;
+  height: 215px;
+  opacity: 0.12;
+}
+.showcase-card {
+  position: absolute;
+  top: 9%;
+}
+.showcase-card .playing-card {
+  --card-w: clamp(87px, 10vw, 140px);
+  --card-h: clamp(122px, 14vw, 198px);
+}
+.showcase-jack {
+  left: 48%;
+}
+.showcase-ace {
+  left: 24%;
+  top: 18%;
+}
+.showcase-chip {
+  position: absolute;
+  bottom: 13%;
+  z-index: 2;
+}
+.chip-first {
+  right: 16%;
+  transform: rotate(12deg);
+}
+.chip-second {
+  right: 8%;
+  bottom: 24%;
+  transform: rotate(-12deg);
+}
+.showcase-chip .chip {
+  width: 48px;
+  height: 48px;
+  box-shadow:
+    0 4px 0 #172e23,
+    0 8px 16px #07150c55;
+}
+.twentyone-stamp {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  bottom: 14%;
+  left: 14%;
+  color: var(--gold);
+  transform: rotate(-8deg);
+}
+.twentyone-stamp strong {
+  font-size: 46px;
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+.twentyone-stamp span {
+  font-size: 7px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+.art-suit {
+  position: absolute;
+  color: var(--gold);
+  opacity: 0.35;
+  font-size: 25px;
+}
+.suit-club {
+  left: 9%;
+  top: 27%;
+  transform: rotate(-15deg);
+}
+.suit-diamond {
+  right: 8%;
+  top: 8%;
+}
+.lounge-caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  color: var(--subtle);
+  font-size: 9px;
+  margin-top: -5px;
+}
+.lounge-caption svg {
+  color: var(--gold);
+  width: 12px;
+  height: 12px;
+}
+.entry-panel {
+  padding: clamp(22px, 2.7vw, 38px);
+  width: 100%;
+  max-width: 440px;
+  justify-self: end;
+}
+.entry-heading h2 {
+  font-size: clamp(23px, 2.5vw, 31px);
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+.entry-heading p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 9px;
+}
+.entry-tabs {
+  margin-top: 25px;
+}
+.entry-form {
+  display: grid;
+  gap: 15px;
+  margin-top: 22px;
+}
+.entry-form .button {
+  margin-top: 4px;
+  min-height: 47px;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+.code-input {
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+.entry-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 13px 20px;
+  margin: 23px 0;
+  padding-bottom: 21px;
+  border-bottom: 1px solid var(--line);
+}
+.entry-details > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.entry-details svg {
+  width: 14px;
+  height: 14px;
+  color: var(--gold);
+}
+.entry-details strong {
+  color: var(--text);
+}
+.learn-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  background: none;
+  padding: 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+.learn-button > svg {
+  width: 14px;
+  height: 14px;
+}
+.learn-button > span {
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+}
+.learn-button > span > svg {
+  width: 12px;
+  height: 12px;
+}
+.entry-footnote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--subtle);
+  font-size: 9px;
+  margin-top: 23px;
+}
+.entry-footnote svg {
+  width: 12px;
+  height: 12px;
+}
+.lounge-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--subtle);
+  font-size: 9px;
+  align-self: end;
+}
+.lounge-bottom > span,
+.lounge-bottom button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lounge-bottom svg {
+  width: 12px;
+  height: 12px;
+}
+.lounge-bottom button {
+  color: var(--muted);
+  background: none;
+  font-size: 9px;
+}
+.resume-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0 0;
+}
+.resume-emblem {
+  width: 60px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 11px;
+  transform: rotate(-6deg);
+  background: var(--gold-soft);
+}
+.resume-emblem svg {
+  width: 30px;
+  height: 30px;
+}
+.resume-content > strong {
+  font-size: 23px;
+  letter-spacing: 4px;
+  margin-top: 18px;
+}
+.resume-content > span:not(.resume-emblem) {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 7px;
+}
+.resume-content > button {
+  margin-top: 24px;
+}
+.table-screen {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 40px minmax(0, 1fr);
+  gap: 16px;
+}
+.session-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.session-identity,
+.session-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.session-identity h1 {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.45px;
+  white-space: nowrap;
+}
+.session-mode {
+  color: var(--muted);
+  font-size: 10px;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+  white-space: nowrap;
+}
+.room-code {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--surface-2);
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.room-code svg {
+  width: 12px;
+  height: 12px;
+}
+.session-tools {
+  gap: 8px;
+}
+.session-tools .button {
+  min-height: 34px;
+  font-size: 10px;
+  padding: 0 12px;
+}
+.session-tools .button svg {
+  width: 14px;
+  height: 14px;
+}
+.is-lobby .table-exit {
+  display: none;
+}
+.lobby-screen {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 60px;
+  gap: 16px;
+}
+.lobby-mobile-tabs {
+  display: none;
+}
+.lobby-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(330px, 0.9fr);
+  min-height: 0;
+  gap: 22px;
+}
+.guest-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) 42px;
+  gap: 18px;
+  padding: 26px;
+}
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.panel-heading h2 {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+  margin-top: 8px;
+}
+.panel-heading > svg {
+  color: var(--gold);
+  width: 22px;
+  height: 22px;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold);
+  background: var(--gold-soft);
+  border: 1px solid #a88c4e30;
+  border-radius: 6px;
+  padding: 7px 9px;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.badge svg {
+  width: 14px;
+  height: 14px;
+}
+.guest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  min-height: 0;
+}
+.guest-seat {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 15px 6px;
+  position: relative;
+}
+.guest-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  color: var(--subtle);
+  margin-bottom: 12px;
+}
+.guest-status svg {
+  width: 11px;
+  height: 11px;
+}
+.guest-status.host {
+  color: var(--gold);
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  background: #bad4b1;
+  color: #315138;
+  box-shadow: inset 0 0 0 2px #ffffff18;
+}
+.avatar.peach {
+  color: #734837;
+  background: #ddb29c;
+}
+.avatar.blue {
+  color: #2f4c51;
+  background: #a2c6c8;
+}
+.avatar.gold {
+  color: #634f29;
+  background: #d6c18b;
+}
+.avatar svg {
+  width: 22px;
+  height: 22px;
+}
+.guest-seat .avatar {
+  width: 51px;
+  height: 51px;
+  font-size: 14px;
+}
+.guest-seat h3 {
+  font-size: 13px;
+  font-weight: 500;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 12px;
+}
+.guest-seat h3 small {
+  color: var(--muted);
+  font-size: 10px;
+}
+.guest-bankroll {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--gold);
+  margin-top: 7px;
+}
+.guest-bankroll svg {
+  width: 13px;
+  height: 13px;
+}
+.guest-bankroll small {
+  color: var(--subtle);
+  font-size: 9px;
+}
+.guest-seat.empty-seat {
+  background: transparent;
+  border: 1px dashed color-mix(in srgb, var(--subtle), transparent 65%);
+  color: var(--muted);
+}
+.empty-seat:hover {
+  background: var(--surface-2);
+  border-color: var(--gold);
+}
+.empty-avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px dashed var(--line);
+  border-radius: 50%;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.empty-avatar svg {
+  width: 18px;
+  height: 18px;
+}
+.empty-seat strong {
+  font-size: 11px;
+  font-weight: 500;
+}
+.empty-seat > span:last-child {
+  font-size: 9px;
+  color: var(--subtle);
+  margin-top: 6px;
+}
+.guest-invite {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.guest-invite > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.guest-invite > span > svg {
+  color: var(--gold);
+  width: 13px;
+  height: 13px;
+}
+.guest-invite .button {
+  font-size: 10px;
+  min-height: 35px;
+  padding: 0 12px;
+}
+.guest-invite .button > svg {
+  width: 13px;
+  height: 13px;
+}
+.settings-panel {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+}
+.settings-panel fieldset {
+  border: 0;
+  padding: 0;
+  margin: 20px 0 0;
+  min-width: 0;
+}
+.settings-panel fieldset:disabled {
+  opacity: 0.7;
+}
+.dealer-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+.dealer-options > button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 10px;
+  text-align: left;
+  position: relative;
+}
+.dealer-options > button.selected {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}
+.dealer-options > button > svg:first-child {
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+}
+.dealer-options strong {
+  font-size: 11px;
+  display: block;
+  font-weight: 500;
+}
+.dealer-options small {
+  font-size: 8px;
+  color: var(--muted);
+  display: block;
+  margin-top: 5px;
+}
+.dealer-options > button > svg:last-child:not(:first-child) {
+  width: 11px;
+  height: 11px;
+  color: var(--gold);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px 15px;
+}
+.settings-grid label {
+  font-size: 10px;
+}
+.settings-grid select {
+  font-size: 11px;
+  min-height: 38px;
+}
+.first-dealer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 10px;
+}
+.first-dealer select {
+  max-width: 62%;
+  margin: 0;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+.settings-note {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: var(--gold-soft);
+  padding: 12px;
+  border: 1px solid #b7975918;
+  border-radius: 8px;
+  margin-top: auto;
+}
+.settings-note > svg {
+  color: var(--gold);
+  width: 24px;
+  height: 24px;
+}
+.settings-note p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+.settings-note strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.lobby-dock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 3px;
+}
+.lobby-ready {
+  margin-left: auto;
+}
+.lobby-ready > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.lobby-ready .inline-error {
+  color: var(--danger);
+}
+.start-button {
+  min-width: 170px;
+  justify-content: space-between;
+}
+.waiting-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.waiting-badge svg {
+  width: 16px;
+  height: 16px;
+}
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 224px;
+  gap: 20px;
+  min-width: 0;
+  min-height: 0;
+}
+.game-main {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 96px;
+  gap: 16px;
+}
+.felt-table {
+  --seat-count: 3;
+  --card-w: clamp(48px, 5.3vw, 73px);
+  --card-h: calc(var(--card-w) * 1.42);
+  --card-spread: 22px;
+  position: relative;
+  min-height: 0;
+  background: var(--felt);
+  border: 7px solid #594d30;
+  border-radius: 150px 150px 65px 65px / 120px 120px 55px 55px;
+  box-shadow:
+    0 0 0 1px #c0a36c88,
+    inset 0 0 0 4px #113928,
+    inset 0 0 80px #082c2370,
+    0 12px 30px #0003;
+  isolation: isolate;
+  margin: 5px 3px 1px;
+  color: #e7edda;
+  background-image:
+    radial-gradient(ellipse at 50% 40%, #53825925, transparent 70%),
+    repeating-linear-gradient(95deg, #ffffff02 0 1px, transparent 1px 4px);
+}
+.felt-rail {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid #c4bd7e35;
+  border-radius: 130px 130px 50px 50px / 100px 100px 42px 42px;
+  pointer-events: none;
+  z-index: -1;
+}
+.table-corner-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  top: 32px;
+  left: 45px;
+  font-size: 8px;
+  color: #c7c39888;
+  letter-spacing: 0.8px;
+}
+.table-corner-label svg {
+  width: 12px;
+  height: 12px;
+}
+.card-shoe {
+  width: 40px;
+  height: 53px;
+  position: absolute;
+  top: 29px;
+  right: 47px;
+  transform: rotate(12deg);
+}
+.card-shoe > span {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #d0d7b7;
+  border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #59724b 0 2px, #365138 2px 4px);
+  box-shadow: 0 3px 5px #0002;
+}
+.card-shoe > span:nth-child(1) {
+  transform: translate(5px, -5px);
+}
+.card-shoe > span:nth-child(2) {
+  transform: translate(2px, -2px);
+}
+.card-shoe > span:last-child {
+  display: grid;
+  place-items: center;
+  color: #c0d09d;
+}
+.card-shoe svg {
+  width: 19px;
+  height: 19px;
+}
+.dealer-zone {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --card-w: clamp(48px, 4.9vw, 68px);
+  --card-h: calc(var(--card-w) * 1.42);
+  --card-spread: 29px;
+}
+.dealer-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 10px;
+  color: #c5d7b8;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+.dealer-name strong {
+  font-weight: 500;
+}
+.dealer-name > span:last-child {
+  color: #9cba95;
+  font-size: 8px;
+  border-left: 1px solid #b5c59c30;
+  padding-left: 7px;
+}
+.house-avatar {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border: 1px solid #d0b77555;
+  border-radius: 50%;
+  background: #d0b77515;
+  color: #dfc187;
+}
+.house-avatar svg {
+  width: 12px;
+  height: 12px;
+}
+.dealer-name .avatar {
+  width: 22px;
+  height: 22px;
+  font-size: 7px;
+}
+.dealer-name .avatar svg {
+  width: 13px;
+  height: 13px;
+}
+.dealer-name.is-playing {
+  color: #e9d7a4;
+}
+.dealer-cards {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.empty-dealer-hand {
+  display: flex;
+  gap: 8px;
+}
+.empty-dealer-hand > span {
+  display: grid;
+  place-items: center;
+  width: var(--card-w);
+  height: var(--card-h);
+  border: 1px dashed #b9c28e50;
+  border-radius: 6px;
+  color: #c9d1a330;
+  font-size: 31px;
+}
+.dealer-score,
+.hand-score {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #eff0d4;
+  background: #123c2c;
+  border: 1px solid #a3bc7d66;
+  border-radius: 5px;
+  font-size: 10px;
+  min-width: 27px;
+  height: 23px;
+  padding: 0 7px;
+}
+.dealer-score {
+  margin-top: 8px;
+}
+.dealer-score.bust,
+.hand-score.bust {
+  border-color: #ce8765;
+  color: #ffd6be;
+  background: #614432;
+}
+.playing-card {
+  width: var(--card-w, 70px);
+  height: var(--card-h, 100px);
+  flex-shrink: 0;
+  perspective: 800px;
+  position: relative;
+  color: #183c2f;
+}
+.card-flipper {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  border-radius: 7px;
+  box-shadow: 0 5px 8px #03271940;
+}
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fffdf3;
+  border: 1px solid #fff;
+}
+.playing-card.red {
+  color: #b54f42;
+}
+.card-corner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 6%;
+  left: 9%;
+  line-height: 1;
+  font-size: calc(var(--card-w, 70px) * 0.25);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+.card-corner small {
+  font-size: 0.85em;
+  margin-top: 2px;
+}
+.card-corner.bottom {
+  top: auto;
+  left: auto;
+  right: 9%;
+  bottom: 6%;
+  transform: rotate(180deg);
+}
+.card-suit {
+  font-size: calc(var(--card-w, 70px) * 0.59);
+  line-height: 1;
+}
+.card-back {
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+  background: repeating-linear-gradient(45deg, #557150 0 2px, #34583d 2px 5px);
+  border: 4px solid #e1e7cf;
+}
+.card-back > span {
+  display: grid;
+  place-items: center;
+  width: 60%;
+  height: 60%;
+  color: #dfddaf;
+  border: 1px solid #d8d0a577;
+  border-radius: 2px;
+}
+.card-back svg {
+  width: 65%;
+  height: 65%;
+}
+.card-fan {
+  max-width: 100%;
+  min-width: var(--card-w);
+  height: var(--card-h);
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+}
+.fan-slot {
+  min-width: 0;
+  flex: 1 1 0;
+  position: relative;
+}
+.fan-slot:last-child {
+  flex: 0 0 var(--card-w);
+}
+.table-center {
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: 43%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  pointer-events: none;
+}
+.table-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #c7c18c56;
+}
+.table-wordmark > span {
+  font-size: 6px;
+  letter-spacing: 2.2px;
+}
+.table-wordmark > strong {
+  font-size: clamp(25px, 3vw, 40px);
+  font-weight: 500;
+  letter-spacing: -1.5px;
+  margin: 1px 0 4px;
+}
+.table-announcement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #dde5c9;
+  min-height: 27px;
+  white-space: nowrap;
+}
+.table-announcement > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+}
+.table-announcement > span:first-child > svg {
+  width: 15px;
+  height: 15px;
+  color: #ddc28a;
+}
+.table-announcement.your-move {
+  color: #f3dea6;
+}
+.table-announcement .status-dot {
+  width: 5px;
+  height: 5px;
+}
+.turn-clock {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 5px 6px;
+  background: #0f3929;
+  border: 1px solid #a3bc7d33;
+  border-radius: 5px;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  min-width: 42px;
+}
+.turn-clock svg {
+  width: 12px;
+  height: 12px;
+}
+.turn-clock.urgent {
+  color: #ffd2ad;
+  border-color: #d69d6180;
+  background: #67492e88;
+}
+.player-seats {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(var(--seat-count), minmax(0, 1fr));
+  align-items: end;
+  gap: 13px;
+  bottom: 29px;
+  left: 5%;
+  right: 5%;
+}
+.seats-1 {
+  --seat-count: 1;
+}
+.seats-2 {
+  --seat-count: 2;
+}
+.seats-3 {
+  --seat-count: 3;
+}
+.seats-4 {
+  --seat-count: 4;
+}
+.seats-5 {
+  --seat-count: 5;
+}
+.seats-6 {
+  --seat-count: 6;
+}
+.seats-5,
+.seats-6 {
+  --card-w: clamp(42px, 4.3vw, 59px);
+  --card-spread: 17px;
+}
+.player-seat {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 185px;
+}
+.player-seat.eliminated {
+  opacity: 0.45;
+}
+.seat-hand-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: calc(var(--card-h) + 13px);
+}
+.hand-score {
+  position: relative;
+  margin-top: -6px;
+  z-index: 2;
+  font-size: 10px;
+  height: 21px;
+}
+.hand-score svg {
+  width: 10px;
+  height: 10px;
+}
+.hand-score.natural {
+  background: #c9b576;
+  color: #253b24;
+  border-color: #f2dc9b;
+}
+.has-turn .hand-score {
+  border-color: #ebce8c;
+  box-shadow: 0 0 12px #e4c78725;
+}
+.hand-outcome {
+  position: absolute;
+  z-index: 3;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  white-space: nowrap;
+  background: #40563a;
+  border: 1px solid #b3c288;
+  color: #e5edc4;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px #0003;
+}
+.hand-outcome.win {
+  background: #e1c58e;
+  color: #29432d;
+  border-color: #f4dfac;
+}
+.hand-outcome.loss {
+  color: #ffd2b9;
+  background: #794d3d;
+  border-color: #c98f72;
+}
+.hand-outcome.push {
+  background: #dde4d1;
+  color: #36513a;
+}
+.bet-spot {
+  border: 1px dashed #a7bc7d55;
+  height: var(--card-h);
+  width: var(--card-h);
+  max-width: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: #b8c89c;
+}
+.bet-spot > svg {
+  width: 24px;
+  height: 24px;
+  color: #b7bf8350;
+}
+.bet-spot > span:not(.chip) {
+  font-size: 8px;
+}
+.bet-spot strong {
+  font-size: 10px;
+  font-weight: 500;
+  color: #e7d7a5;
+}
+.bet-spot.placed {
+  border-color: #d1bd7788;
+  background: #d4bd6d08;
+}
+.chip {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e4d4aa88;
+  border-radius: 50%;
+  background: repeating-conic-gradient(#e7e5cc 0deg 13deg, #779564 13deg 45deg);
+  padding: 5px;
+  box-shadow: 0 2px 0 #314f37;
+}
+.chip > span {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px dashed #ced7aa;
+  width: 100%;
+  height: 100%;
+  color: #fffbe1;
+  background: #58774f;
+  font-size: 12px;
+  font-weight: 600;
+}
+.chip-250 {
+  background: repeating-conic-gradient(#e9e4d8 0deg 13deg, #7c92b2 13deg 45deg);
+}
+.chip-250 > span {
+  background: #526e8b;
+  border-color: #c1d3dc;
+}
+.chip-500 {
+  background: repeating-conic-gradient(#eee1c4 0deg 13deg, #bf9268 13deg 45deg);
+}
+.chip-500 > span {
+  background: #a97b50;
+  border-color: #e9cc99;
+}
+.chip-1000 {
+  background: repeating-conic-gradient(#e9e5d2 0deg 13deg, #a97868 13deg 45deg);
+}
+.chip-1000 > span {
+  background: #885a4d;
+  border-color: #e9c6b0;
+}
+.chip.small {
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+}
+.chip.small > span {
+  font-size: 9px;
+}
+.hand-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 27px;
+  max-width: 100%;
+}
+.hand-tabs > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 20px;
+  min-width: 27px;
+  padding: 0 5px;
+  background: #103a2a;
+  color: #b2c49d;
+  border: 1px solid #a7bc7d33;
+  border-radius: 4px;
+  font-size: 8px;
+}
+.hand-tabs > button span {
+  color: #d7e0bd;
+  font-size: 7px;
+}
+.hand-tabs > button.selected {
+  border-color: #d7c68e;
+  background: #4a6141;
+  color: #f1e2b2;
+}
+.hand-tabs > button.playing::before {
+  content: '';
+  width: 3px;
+  height: 3px;
+  background: #e7d496;
+  border-radius: 50%;
+}
+.seat-bet {
+  font-size: 7px;
+  color: #b3c197;
+}
+.seat-nameplate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  border: 1px solid #b6c29333;
+  background: #113c2b;
+  border-radius: 9px;
+  padding: 8px 10px;
+  width: 100%;
+  max-width: 170px;
+  min-width: 0;
+  box-shadow: 0 3px 8px #052c2220;
+}
+.seat-nameplate .avatar {
+  width: 30px;
+  height: 30px;
+  font-size: 8px;
+}
+.seat-nameplate .avatar svg {
+  width: 17px;
+  height: 17px;
+}
+.seat-nameplate > div {
+  min-width: 0;
+  flex: 1;
+}
+.seat-nameplate strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.seat-nameplate strong small {
+  color: #c8ca94;
+  font-size: 7px;
+}
+.seat-nameplate > div > span {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: #c0ce9f;
+  font-size: 9px;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.seat-nameplate > div > span > svg {
+  width: 11px;
+  height: 11px;
+}
+.seat-nameplate > .status-dot {
+  width: 4px;
+  height: 4px;
+  background: #ebd094;
+}
+.your-seat .seat-nameplate {
+  background: #204e35;
+  border-color: #a9be7b88;
+}
+.has-turn .seat-nameplate {
+  border-color: #edcc82;
+  box-shadow:
+    0 0 0 2px #cbaa6b18,
+    0 0 20px #e4c78712;
+}
+.table-bottom-label {
+  position: absolute;
+  bottom: 11px;
+  left: 25%;
+  right: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #c5c38755;
+  font-size: 5px;
+  letter-spacing: 1.7px;
+  white-space: nowrap;
+}
+.table-bottom-label > span {
+  width: 20px;
+  height: 1px;
+  background: #c5c38733;
+}
+.table-score-button {
+  position: absolute;
+  top: 18px;
+  right: 23px;
+  color: #e3d2a4;
+  display: none;
+  background: #123e2b;
+  border: 1px solid #c5c38744;
+}
+.control-dock {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 16px 20px;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+.your-bankroll {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-right: 20px;
+  border-right: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.bankroll-icon {
+  width: 37px;
+  height: 37px;
+  background: var(--gold-soft);
+  border-radius: 50%;
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+}
+.bankroll-icon svg {
+  width: 23px;
+  height: 23px;
+}
+.your-bankroll > div > span {
+  font-size: 9px;
+  color: var(--muted);
+}
+.your-bankroll strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.move-context {
+  flex: 1;
+  min-width: 0;
+}
+.move-context strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.move-context > span {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.move-context .profit,
+.move-context .loss {
+  font-size: 10px;
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+.move-context .profit {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+.move-context .loss {
+  color: var(--danger);
+  background: var(--danger-bg);
+}
+.game-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  flex-shrink: 0;
+  width: min(53%, 390px);
+}
+.move-button {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  row-gap: 4px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+  text-align: left;
+}
+.move-button > svg {
+  width: 16px;
+  height: 16px;
+  grid-row: 1;
+}
+.move-button strong {
+  font-size: 11px;
+  font-weight: 500;
+}
+.move-button small {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 7px;
+  white-space: nowrap;
+  text-align: center;
+}
+.move-button:hover:not(:disabled) {
+  border-color: var(--gold);
+  background: var(--surface-3);
+}
+.move-button.hit-button:not(:disabled) {
+  background: #328364;
+  color: #fffbe8;
+  border-color: #70a989;
+  box-shadow: 0 3px 0 #0c3d2b;
+}
+.move-button.hit-button:not(:disabled) small {
+  color: #c6dfc9;
+}
+.move-button.stand-button:not(:disabled) {
+  background: var(--primary);
+  color: var(--primary-text);
+  border-color: #dcc59088;
+  box-shadow: 0 3px 0 #0002;
+}
+.move-button.stand-button:not(:disabled) small {
+  color: inherit;
+  opacity: 0.7;
+}
+.move-button:disabled {
+  opacity: 0.37;
+  background: transparent;
+}
+.bet-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.bet-picker label {
+  font-size: 8px;
+}
+.bet-stepper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.bet-stepper button {
+  background: var(--surface-2);
+  height: 30px;
+  width: 26px;
+  display: grid;
+  place-items: center;
+}
+.bet-stepper button > svg {
+  width: 12px;
+  height: 12px;
+}
+.bet-stepper input {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  margin: 0;
+  padding: 0;
+  width: 55px;
+  height: 30px;
+  border: 0;
+  border-radius: 0;
+  background: var(--bg);
+  font-size: 12px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.bet-stepper input::-webkit-inner-spin-button {
+  display: none;
+}
+.chip-choices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+.chip-choices > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 4px;
+  background: transparent;
+  font-size: 8px;
+  color: var(--muted);
+}
+.chip-choices > button.selected {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+.chip-choices > button:disabled {
+  opacity: 0.3;
+}
+.chip-choices .chip.small {
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+}
+.chip-choices .chip.small > span {
+  font-size: 8px;
+}
+.deal-button {
+  min-width: 125px;
+}
+.round-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.round-controls .button {
+  min-height: 41px;
+  font-size: 11px;
+  padding: 0 15px;
+}
+.dealer-action {
+  flex-shrink: 0;
+}
+.table-sidebar {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 17px;
+}
+.rail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.rail-heading h2 {
+  font-size: 12px;
+  font-weight: 500;
+}
+.rail-heading > svg {
+  width: 16px;
+  height: 16px;
+  color: var(--subtle);
+}
+.standings {
+  display: grid;
+  gap: 4px;
+  margin-top: 13px;
+}
+.standing {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+}
+.standing.out {
+  opacity: 0.4;
+}
+.standing-rank {
+  display: grid;
+  place-items: center;
+  width: 12px;
+  flex-shrink: 0;
+  font-size: 8px;
+  color: var(--subtle);
+}
+.standing-rank svg {
+  width: 12px;
+  height: 12px;
+  color: var(--gold);
+}
+.standing .avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 8px;
+}
+.standing .avatar > svg {
+  width: 16px;
+  height: 16px;
+}
+.standing > div {
+  min-width: 0;
+  flex: 1;
+}
+.standing strong {
+  font-size: 10px;
+  font-weight: 500;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.standing strong > small {
+  color: var(--gold);
+  font-size: 8px;
+}
+.standing > div > span {
+  display: block;
+  color: var(--subtle);
+  font-size: 8px;
+  margin-top: 4px;
+}
+.standing > b {
+  font-size: 11px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.activity-heading {
+  margin-top: 22px;
+}
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-top: 16px;
+  min-height: 0;
+}
+.activity-list > p {
+  font-size: 10px;
+  line-height: 1.65;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+.activity-list > p > span {
+  width: 4px;
+  height: 4px;
+  flex-shrink: 0;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-top: 6px;
+}
+.rail-overview {
+  width: 100%;
+  min-height: 34px;
+  margin-top: auto;
+  font-size: 9px;
+  justify-content: space-between;
+}
+.rail-overview svg {
+  width: 12px;
+  height: 12px;
+}
+.rail-footnote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--subtle);
+  font-size: 9px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+.rail-footnote svg {
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+}
+.dialog-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: #03110ed9;
+  backdrop-filter: blur(9px);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+.game-dialog {
+  width: 490px;
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid #a88d4e55;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 30px 90px #0006;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 17px;
+}
+.dialog-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  color: var(--gold);
+}
+.dialog-heading > span svg {
+  width: 14px;
+  height: 14px;
+}
+.game-dialog h2 {
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.9px;
+}
+.rules-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 327px;
+}
+.lesson-mark {
+  width: 68px;
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 24px;
+  font-weight: 500;
+  border-radius: 6px;
+  background: #f9f2dc;
+  color: #244937;
+  border: 1px solid #e5ce9a;
+  box-shadow: 0 4px 10px #0003;
+  margin: 0 0 25px 5px;
+}
+.lesson-mark > svg {
+  width: 17px;
+  height: 17px;
+}
+.rules-body .overline {
+  font-size: 8px;
+  margin-bottom: 9px;
+}
+.rules-body > p,
+.leave-dialog > p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-top: 14px;
+}
+.lesson-detail {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+  background: var(--gold-soft);
+  border: 1px solid #c4a56522;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+.dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.page-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.page-dots button {
+  padding: 8px 4px;
+  background: transparent;
+}
+.page-dots button::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: var(--subtle);
+  opacity: 0.5;
+  border-radius: 4px;
+  transition: width 0.2s;
+}
+.page-dots button.selected::after {
+  width: 15px;
+  background: var(--gold);
+  opacity: 1;
+}
+.dialog-footer .button {
+  font-size: 11px;
+  min-height: 38px;
+}
+.score-dialog .segmented {
+  margin-top: 20px;
+}
+.score-dialog-content {
+  height: 330px;
+  min-height: 0;
+}
+.score-dialog .standing {
+  padding: 11px 3px;
+}
+.score-dialog .standing strong {
+  font-size: 12px;
+}
+.score-dialog .standing > b {
+  font-size: 13px;
+}
+.score-dialog .standing > div > span {
+  font-size: 9px;
+}
+.score-dialog .avatar {
+  width: 31px;
+  height: 31px;
+  font-size: 9px;
+}
+.score-dialog .activity-list > p {
+  min-height: 38px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+.subtle {
+  font-size: 9px;
+  color: var(--subtle);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.subtle > svg {
+  width: 12px;
+  height: 12px;
+}
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pager > span {
+  font-size: 10px;
+  color: var(--muted);
+}
+.leave-emblem {
+  display: grid;
+  place-items: center;
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid var(--danger-border);
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  margin-bottom: 19px;
+}
+.leave-emblem > svg {
+  width: 26px;
+  height: 26px;
+}
+.leave-explanation {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--gold-soft);
+  color: var(--muted);
+  padding: 13px;
+  margin-top: 18px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.8;
+}
+.leave-explanation > svg {
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+  color: var(--gold);
+}
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: fixed;
+  z-index: 80;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  border: 1px solid var(--gold);
+  background: var(--surface-3);
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  box-shadow: 0 8px 30px #0004;
+}
+.toast > svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
+}
+.error-toast {
+  background: #532f27;
+  color: #ffdbcb;
+  border-color: #c68a70;
+}
+.error-toast .icon-button {
+  color: #ffd0b7;
+  width: 24px;
+  height: 24px;
+}
+.error-toast > svg {
+  color: #ffd0b7;
+}
+.loading-ring {
+  display: inline-block;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 1600px) and (min-height: 850px) {
+  .game-viewport {
+    padding: 26px 38px 30px;
+  }
+  .game-layout {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 28px;
+  }
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 108px;
+    gap: 23px;
+  }
+  .felt-table {
+    --card-w: 86px;
+  }
+  .seats-5,
+  .seats-6 {
+    --card-w: 72px;
+  }
+  .dealer-zone {
+    --card-w: 81px;
+    top: 33px;
+  }
+  .table-sidebar {
+    padding: 25px 22px;
+  }
+  .standing {
+    padding: 13px 0;
+  }
+  .standing strong {
+    font-size: 12px;
+  }
+  .standing > b {
+    font-size: 13px;
+  }
+  .standing .avatar {
+    width: 34px;
+    height: 34px;
+  }
+  .standing > div > span {
+    font-size: 10px;
+  }
+  .activity-list > p {
+    font-size: 12px;
+  }
+  .rail-heading h2 {
+    font-size: 14px;
+  }
+  .rail-overview {
+    font-size: 11px;
+    min-height: 40px;
+  }
+  .rail-footnote {
+    font-size: 11px;
+    margin-top: 25px;
+  }
+  .seat-nameplate {
+    padding: 10px 12px;
+  }
+  .seat-nameplate strong {
+    font-size: 12px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 11px;
+  }
+  .seat-nameplate .avatar {
+    width: 35px;
+    height: 35px;
+  }
+  .seat-bet {
+    font-size: 9px;
+  }
+  .table-center {
+    gap: 24px;
+  }
+  .table-wordmark > strong {
+    font-size: 45px;
+  }
+  .table-wordmark > span {
+    font-size: 8px;
+  }
+  .table-announcement > span:first-child {
+    font-size: 14px;
+  }
+  .turn-clock {
+    font-size: 11px;
+  }
+  .move-button {
+    padding: 12px 15px;
+  }
+  .move-button strong {
+    font-size: 13px;
+  }
+  .move-button small {
+    font-size: 8px;
+  }
+  .game-actions {
+    width: 430px;
+  }
+  .move-context strong {
+    font-size: 15px;
+  }
+  .move-context > span {
+    font-size: 11px;
+  }
+  .your-bankroll strong {
+    font-size: 25px;
+  }
+}
+@media (max-width: 1200px) {
+  .game-header {
+    padding: 0 24px;
+    gap: 18px;
+  }
+  .game-viewport {
+    padding: 18px 22px 20px;
+  }
+  .virtual-badge {
+    display: none;
+  }
+  .header-tools {
+    flex: 0 0 auto;
+  }
+  .brand {
+    flex: 1;
+  }
+  .main-nav {
+    margin-right: auto;
+  }
+  .lounge-screen {
+    gap: 16px 28px;
+    grid-template-columns: minmax(0, 1.15fr) minmax(325px, 0.9fr);
+  }
+  .lounge-copy h1 {
+    font-size: 52px;
+  }
+  .entry-panel {
+    padding: 28px;
+  }
+  .lounge-art {
+    height: min(32vh, 290px);
+  }
+  .lobby-content {
+    grid-template-columns: minmax(0, 1.2fr) minmax(310px, 0.9fr);
+    gap: 18px;
+  }
+  .guest-panel,
+  .settings-panel {
+    padding: 22px;
+  }
+  .panel-heading h2 {
+    font-size: 22px;
+  }
+  .guest-grid {
+    gap: 9px;
+  }
+  .dealer-options {
+    gap: 7px;
+  }
+  .dealer-options > button {
+    padding: 13px 8px;
+    gap: 6px;
+  }
+  .dealer-options strong {
+    font-size: 10px;
+  }
+  .dealer-options small {
+    font-size: 7px;
+  }
+  .dealer-options > button > svg:first-child {
+    width: 19px;
+    height: 19px;
+  }
+  .game-layout {
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 16px;
+  }
+  .table-sidebar {
+    padding: 18px 13px;
+  }
+  .standing {
+    gap: 5px;
+  }
+  .standing strong {
+    font-size: 9px;
+  }
+  .standing > b {
+    font-size: 10px;
+  }
+  .standing .avatar {
+    width: 25px;
+    height: 25px;
+    font-size: 7px;
+  }
+  .control-dock {
+    padding: 13px 15px;
+    gap: 13px;
+  }
+  .your-bankroll {
+    padding-right: 14px;
+    gap: 7px;
+  }
+  .bankroll-icon {
+    width: 31px;
+    height: 31px;
+  }
+  .bankroll-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+  .your-bankroll strong {
+    font-size: 20px;
+  }
+  .move-context strong {
+    font-size: 11px;
+  }
+  .move-context > span {
+    font-size: 8px;
+  }
+  .move-button {
+    padding: 10px 7px;
+    column-gap: 3px;
+    grid-template-columns: 15px 1fr;
+  }
+  .move-button strong {
+    font-size: 10px;
+  }
+  .move-button > svg {
+    width: 13px;
+    height: 13px;
+  }
+  .move-button small {
+    font-size: 6px;
+  }
+  .game-actions {
+    width: 53%;
+    gap: 5px;
+  }
+  .chip-choices {
+    gap: 4px;
+  }
+  .chip-choices .chip.small {
+    width: 28px;
+    height: 28px;
+  }
+  .chip-choices .chip.small > span {
+    font-size: 7px;
+  }
+  .chip-choices > button {
+    padding: 3px;
+    gap: 5px;
+  }
+  .deal-button {
+    min-width: 105px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+  .felt-table {
+    border-radius: 100px 100px 40px 40px / 90px 90px 35px 35px;
+  }
+  .felt-rail {
+    inset: 12px;
+    border-radius: 85px 85px 30px 30px / 75px 75px 27px 27px;
+  }
+  .table-corner-label {
+    left: 32px;
+    font-size: 7px;
+    top: 26px;
+  }
+  .card-shoe {
+    right: 34px;
+    top: 27px;
+    width: 32px;
+    height: 44px;
+  }
+  .dealer-zone {
+    top: 20px;
+  }
+  .table-center {
+    top: 43%;
+    gap: 12px;
+  }
+  .table-wordmark > strong {
+    font-size: 31px;
+  }
+  .table-wordmark > span {
+    font-size: 5px;
+    letter-spacing: 1.6px;
+  }
+  .player-seats {
+    gap: 9px;
+    left: 4%;
+    right: 4%;
+  }
+  .seat-nameplate {
+    padding: 7px 7px;
+    gap: 5px;
+  }
+  .seat-nameplate .avatar {
+    width: 25px;
+    height: 25px;
+    font-size: 7px;
+  }
+  .seat-nameplate strong {
+    font-size: 9px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 8px;
+  }
+  .seat-nameplate > div > span > svg {
+    width: 9px;
+    height: 9px;
+  }
+}
+@media (max-width: 1050px) {
+  .game-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .table-sidebar {
+    display: none;
+  }
+  .table-score-button {
+    display: grid;
+  }
+  .card-shoe {
+    right: 73px;
+    top: 26px;
+  }
+  .felt-table {
+    --card-w: clamp(45px, 7.6vw, 73px);
+  }
+  .seats-5,
+  .seats-6 {
+    --card-w: clamp(42px, 6.5vw, 60px);
+  }
+  .dealer-zone {
+    --card-w: 62px;
+  }
+  .table-center {
+    top: 43%;
+  }
+  .control-dock {
+    padding: 15px 18px;
+    gap: 18px;
+  }
+  .game-actions {
+    width: min(54%, 390px);
+    gap: 7px;
+  }
+  .move-button {
+    padding: 10px;
+    grid-template-columns: 18px 1fr;
+  }
+  .move-button strong {
+    font-size: 11px;
+  }
+  .move-button small {
+    font-size: 7px;
+  }
+  .move-button > svg {
+    width: 16px;
+    height: 16px;
+  }
+  .move-context strong {
+    font-size: 12px;
+  }
+  .move-context > span {
+    font-size: 9px;
+  }
+  .chip-choices {
+    gap: 8px;
+  }
+  .chip-choices .chip.small {
+    width: 33px;
+    height: 33px;
+  }
+  .deal-button {
+    min-width: 120px;
+  }
+  .lounge-copy h1 {
+    font-size: 45px;
+    letter-spacing: -2px;
+  }
+  .club-label {
+    font-size: 8px;
+    gap: 8px;
+  }
+  .club-label > span {
+    width: 12px;
+  }
+  .lounge-caption {
+    font-size: 8px;
+  }
+  .entry-heading h2 {
+    font-size: 25px;
+  }
+  .lounge-screen {
+    gap: 14px 22px;
+    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.95fr);
+  }
+  .showcase-card .playing-card {
+    --card-w: 110px;
+    --card-h: 156px;
+  }
+  .showcase-ace {
+    left: 17%;
+  }
+  .showcase-jack {
+    left: 47%;
+  }
+  .showcase-chip .chip {
+    width: 40px;
+    height: 40px;
+  }
+  .twentyone-stamp {
+    left: 6%;
+  }
+  .entry-panel {
+    padding: 25px;
+  }
+  .lobby-content {
+    gap: 15px;
+  }
+  .guest-panel,
+  .settings-panel {
+    padding: 20px;
+  }
+  .panel-heading h2 {
+    font-size: 20px;
+  }
+  .guest-invite > span {
+    font-size: 8px;
+  }
+  .guest-seat h3 {
+    font-size: 11px;
+  }
+  .guest-seat .avatar {
+    width: 43px;
+    height: 43px;
+  }
+  .guest-bankroll {
+    font-size: 10px;
+  }
+  .guest-bankroll small {
+    display: none;
+  }
+  .settings-note p {
+    font-size: 9px;
+  }
+  .settings-grid {
+    gap: 14px 10px;
+  }
+}
+@media (max-width: 760px) {
+  .casino-app {
+    --header-h: 62px;
+  }
+  .game-header {
+    padding: 0 18px;
+    gap: 12px;
+  }
+  .brand {
+    flex: 1;
+    gap: 8px;
+  }
+  .brand-emblem {
+    width: 29px;
+    height: 35px;
+  }
+  .brand-emblem svg {
+    width: 21px;
+    height: 21px;
+  }
+  .brand > span:last-child {
+    font-size: 22px;
+  }
+  .brand small {
+    font-size: 5px;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+  }
+  .main-nav {
+    margin: 0;
+    gap: 2px;
+  }
+  .main-nav button {
+    font-size: 10px;
+    gap: 6px;
+    padding: 0 12px;
+  }
+  .main-nav button svg {
+    width: 15px;
+    height: 15px;
+  }
+  .header-tools {
+    gap: 2px;
+  }
+  .header-tools .icon-button {
+    width: 32px;
+    height: 32px;
+  }
+  .header-tools .icon-button svg {
+    width: 17px;
+    height: 17px;
+  }
+  .game-viewport {
+    padding: 15px 17px 17px;
+  }
+  .lounge-screen {
+    grid-template-columns: minmax(0, 1fr) minmax(270px, 0.9fr);
+    gap: 12px 14px;
+  }
+  .lounge-copy h1 {
+    font-size: 35px;
+    letter-spacing: -1.5px;
+  }
+  .club-label {
+    font-size: 6px;
+    gap: 5px;
+    margin-bottom: 16px;
+  }
+  .club-label > span {
+    width: 10px;
+  }
+  .lounge-copy p {
+    font-size: 10px;
+    line-height: 1.8;
+    margin-top: 13px;
+  }
+  .lounge-art {
+    height: 230px;
+  }
+  .showcase-card .playing-card {
+    --card-w: 90px;
+    --card-h: 128px;
+  }
+  .showcase-ace {
+    left: 13%;
+  }
+  .showcase-jack {
+    left: 44%;
+  }
+  .showcase-chip .chip {
+    width: 34px;
+    height: 34px;
+    padding: 4px;
+  }
+  .showcase-chip .chip > span {
+    font-size: 9px;
+  }
+  .chip-first {
+    right: 11%;
+  }
+  .chip-second {
+    right: 0;
+  }
+  .twentyone-stamp {
+    left: 3%;
+    bottom: 10%;
+  }
+  .twentyone-stamp strong {
+    font-size: 37px;
+  }
+  .twentyone-stamp span {
+    font-size: 5px;
+  }
+  .art-ring {
+    width: 240px;
+    height: 195px;
+  }
+  .ring-inner {
+    width: 210px;
+    height: 170px;
+  }
+  .lounge-caption {
+    font-size: 7px;
+    gap: 5px;
+  }
+  .lounge-caption svg {
+    width: 10px;
+    height: 10px;
+  }
+  .entry-panel {
+    padding: 23px 20px;
+  }
+  .entry-heading h2 {
+    font-size: 23px;
+  }
+  .entry-heading p {
+    font-size: 10px;
+  }
+  .overline {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+  .entry-tabs {
+    margin-top: 22px;
+  }
+  .segmented button {
+    font-size: 10px;
+    gap: 6px;
+    padding: 9px 5px;
+  }
+  .entry-form {
+    margin-top: 18px;
+  }
+  .entry-form label {
+    font-size: 10px;
+  }
+  .entry-form input {
+    font-size: 12px;
+  }
+  .entry-form .button {
+    font-size: 11px;
+    min-height: 43px;
+  }
+  .entry-details {
+    gap: 10px 14px;
+    margin: 18px 0;
+    padding-bottom: 17px;
+  }
+  .entry-details > span {
+    font-size: 9px;
+    gap: 4px;
+  }
+  .entry-details svg {
+    width: 12px;
+    height: 12px;
+  }
+  .learn-button {
+    font-size: 9px;
+  }
+  .learn-button > span {
+    gap: 4px;
+  }
+  .entry-footnote {
+    font-size: 8px;
+    margin-top: 19px;
+  }
+  .session-bar {
+    gap: 8px;
+  }
+  .session-identity {
+    gap: 9px;
+  }
+  .session-identity h1 {
+    font-size: 15px;
+  }
+  .session-mode {
+    display: none;
+  }
+  .session-tools .button {
+    min-height: 33px;
+    font-size: 9px;
+    padding: 0 10px;
+    gap: 6px;
+  }
+  .room-code {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 8px;
+  }
+  .table-screen {
+    gap: 12px;
+    grid-template-rows: 36px minmax(0, 1fr);
+  }
+  .lobby-screen {
+    grid-template-rows: 37px minmax(0, 1fr) 54px;
+    gap: 12px;
+  }
+  .lobby-mobile-tabs {
+    display: flex;
+  }
+  .lobby-mobile-tabs.segmented {
+    padding: 3px;
+  }
+  .lobby-mobile-tabs button {
+    padding: 6px;
+    font-size: 11px;
+  }
+  .lobby-mobile-tabs button > span {
+    font-size: 9px;
+    padding: 1px 5px;
+    background: var(--gold-soft);
+    color: var(--gold);
+    border-radius: 3px;
+  }
+  .lobby-content {
+    display: block;
+  }
+  .guest-panel,
+  .settings-panel {
+    height: 100%;
+    padding: 22px;
+  }
+  .show-players .settings-panel,
+  .show-settings .guest-panel {
+    display: none;
+  }
+  .guest-panel {
+    gap: 17px;
+    grid-template-rows: auto minmax(0, 1fr) 37px;
+  }
+  .panel-heading h2 {
+    font-size: 23px;
+  }
+  .guest-grid {
+    gap: 12px;
+  }
+  .guest-seat h3 {
+    font-size: 13px;
+  }
+  .guest-seat .avatar {
+    width: 48px;
+    height: 48px;
+    font-size: 13px;
+  }
+  .guest-status {
+    font-size: 9px;
+  }
+  .guest-status svg {
+    width: 12px;
+    height: 12px;
+  }
+  .guest-bankroll {
+    font-size: 11px;
+  }
+  .guest-bankroll small {
+    display: inline;
+  }
+  .guest-invite > span {
+    font-size: 10px;
+  }
+  .settings-panel fieldset {
+    margin-top: 24px;
+  }
+  .dealer-options {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .dealer-options > button {
+    padding: 18px 13px;
+    gap: 10px;
+  }
+  .dealer-options strong {
+    font-size: 12px;
+  }
+  .dealer-options small {
+    font-size: 9px;
+  }
+  .dealer-options > button > svg:first-child {
+    width: 24px;
+    height: 24px;
+  }
+  .settings-grid {
+    gap: 21px 17px;
+  }
+  .settings-grid label {
+    font-size: 11px;
+  }
+  .settings-grid select {
+    min-height: 41px;
+    font-size: 12px;
+  }
+  .settings-note p {
+    font-size: 11px;
+  }
+  .settings-note {
+    padding: 15px;
+  }
+  .first-dealer {
+    font-size: 11px;
+    margin-bottom: 20px;
+  }
+  .first-dealer select {
+    font-size: 12px;
+  }
+  .lobby-dock {
+    gap: 12px;
+    padding: 0;
+  }
+  .lobby-dock .button {
+    min-height: 43px;
+    font-size: 11px;
+  }
+  .lobby-ready > span {
+    font-size: 10px;
+  }
+  .start-button {
+    min-width: 145px;
+  }
+  .lobby-ready .inline-error {
+    max-width: 150px;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 94px;
+    gap: 13px;
+  }
+  .felt-table {
+    --card-w: 61px;
+    border-width: 6px;
+    border-radius: 85px 85px 35px 35px / 75px 75px 30px 30px;
+    margin: 3px 1px 1px;
+  }
+  .felt-rail {
+    inset: 11px;
+    border-radius: 71px 71px 25px 25px / 61px 61px 22px 22px;
+  }
+  .seats-5,
+  .seats-6 {
+    --card-w: 45px;
+    --card-spread: 14px;
+  }
+  .dealer-zone {
+    --card-w: 58px;
+    top: 22px;
+  }
+  .table-center {
+    top: 44%;
+    left: 15%;
+    right: 15%;
+    gap: 13px;
+  }
+  .table-wordmark > strong {
+    font-size: 31px;
+  }
+  .table-corner-label {
+    font-size: 6px;
+    top: 27px;
+    left: 28px;
+  }
+  .table-corner-label > svg {
+    width: 10px;
+    height: 10px;
+  }
+  .card-shoe {
+    width: 26px;
+    height: 36px;
+    right: 60px;
+    top: 25px;
+  }
+  .table-score-button {
+    top: 19px;
+    right: 22px;
+    width: 29px;
+    height: 29px;
+  }
+  .table-score-button > svg {
+    width: 14px;
+    height: 14px;
+  }
+  .player-seats {
+    gap: 9px;
+    left: 4%;
+    right: 4%;
+    bottom: 27px;
+  }
+  .seat-nameplate {
+    padding: 7px 6px;
+    gap: 5px;
+  }
+  .seat-nameplate .avatar {
+    width: 25px;
+    height: 25px;
+  }
+  .seat-nameplate strong {
+    font-size: 9px;
+  }
+  .seats-5 .seat-nameplate .avatar,
+  .seats-6 .seat-nameplate .avatar {
+    display: none;
+  }
+  .seats-5 .seat-nameplate,
+  .seats-6 .seat-nameplate {
+    padding: 7px 6px;
+  }
+  .seats-5 .seat-nameplate strong,
+  .seats-6 .seat-nameplate strong {
+    font-size: 9px;
+  }
+  .seats-5 .seat-nameplate > div > span,
+  .seats-6 .seat-nameplate > div > span {
+    font-size: 8px;
+  }
+  .control-dock {
+    padding: 12px 13px;
+    gap: 12px;
+  }
+  .your-bankroll {
+    gap: 6px;
+    padding-right: 12px;
+  }
+  .your-bankroll strong {
+    font-size: 20px;
+  }
+  .bankroll-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .bankroll-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+  .your-bankroll > div > span {
+    font-size: 8px;
+  }
+  .game-actions {
+    width: 53%;
+    gap: 5px;
+  }
+  .move-context strong {
+    font-size: 11px;
+  }
+  .move-context > span {
+    font-size: 8px;
+    max-width: 110px;
+  }
+  .move-button {
+    padding: 9px 6px;
+    grid-template-columns: 13px 1fr;
+    gap: 5px 3px;
+  }
+  .move-button strong {
+    font-size: 10px;
+  }
+  .move-button small {
+    font-size: 6px;
+  }
+  .move-button svg {
+    width: 13px;
+    height: 13px;
+  }
+  .bet-picker label {
+    font-size: 7px;
+  }
+  .bet-stepper button {
+    width: 22px;
+  }
+  .bet-stepper input {
+    width: 43px;
+    font-size: 11px;
+  }
+  .chip-choices {
+    gap: 3px;
+  }
+  .chip-choices .chip.small {
+    width: 28px;
+    height: 28px;
+  }
+  .chip-choices > button {
+    padding: 3px;
+    font-size: 7px;
+  }
+  .deal-button {
+    min-width: 95px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+  .round-controls .button {
+    padding: 0 12px;
+    font-size: 10px;
+  }
+  .dealer-action {
+    font-size: 11px;
+    padding: 0 14px;
+  }
+}
+@media (max-width: 560px) {
+  .casino-app {
+    --header-h: 58px;
+  }
+  .game-header {
+    padding: 0 13px;
+    gap: 10px;
+  }
+  .brand {
+    gap: 7px;
+  }
+  .brand-emblem {
+    width: 25px;
+    height: 30px;
+    border-radius: 6px;
+  }
+  .brand-emblem svg {
+    width: 19px;
+    height: 19px;
+  }
+  .brand > span:last-child {
+    font-size: 21px;
+  }
+  .brand small {
+    display: none;
+  }
+  .main-nav {
+    gap: 3px;
+  }
+  .main-nav button {
+    width: 34px;
+    height: 32px;
+    padding: 0;
+  }
+  .main-nav button > span {
+    display: none;
+  }
+  .main-nav button > svg {
+    width: 17px;
+    height: 17px;
+  }
+  .main-nav .status-dot {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    width: 3px;
+    height: 3px;
+  }
+  .header-tools {
+    gap: 2px;
+  }
+  .header-tools .icon-button {
+    width: 31px;
+    height: 31px;
+  }
+  .header-tools .icon-button svg {
+    width: 16px;
+    height: 16px;
+  }
+  .game-viewport {
+    padding: 12px;
+  }
+  .lounge-screen {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(100px, 0.68fr) auto 16px;
+    gap: 12px;
+    max-width: 420px;
+  }
+  .lounge-scene {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .lounge-copy {
+    text-align: left;
+    padding-left: 5px;
+  }
+  .club-label {
+    font-size: 7px;
+    line-height: 1.7;
+    max-width: 130px;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    gap: 5px;
+  }
+  .club-label > span {
+    display: none;
+  }
+  .lounge-copy h1 {
+    font-size: clamp(26px, 6.5vw, 35px);
+    letter-spacing: -1.1px;
+    line-height: 1.12;
+    white-space: nowrap;
+  }
+  .lounge-copy p {
+    font-size: 10px;
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+  .lounge-copy p br {
+    display: none;
+  }
+  .lounge-art {
+    width: 100%;
+    height: 170px;
+    min-height: 0;
+    margin-left: 4px;
+  }
+  .showcase-card .playing-card {
+    --card-w: 67px;
+    --card-h: 95px;
+  }
+  .showcase-ace {
+    left: 8%;
+    top: 31%;
+  }
+  .showcase-jack {
+    left: 46%;
+    top: 13%;
+  }
+  .showcase-chip .chip {
+    width: 28px;
+    height: 28px;
+    padding: 3px;
+  }
+  .showcase-chip .chip > span {
+    font-size: 7px;
+  }
+  .chip-first {
+    right: 15%;
+    bottom: 0;
+  }
+  .chip-second {
+    right: 0;
+    bottom: 16%;
+  }
+  .art-ring {
+    width: 170px;
+    height: 145px;
+    top: 45%;
+  }
+  .ring-inner {
+    width: 145px;
+    height: 120px;
+  }
+  .twentyone-stamp {
+    bottom: -5%;
+    left: 8%;
+    gap: 5px;
+  }
+  .twentyone-stamp strong {
+    font-size: 26px;
+    letter-spacing: -1.8px;
+  }
+  .twentyone-stamp span {
+    font-size: 4px;
+    letter-spacing: 0.4px;
+  }
+  .suit-club {
+    left: 5%;
+    top: 0;
+    font-size: 17px;
+  }
+  .suit-diamond {
+    right: 2%;
+    top: 0;
+    font-size: 20px;
+  }
+  .lounge-caption {
+    display: none;
+  }
+  .entry-panel {
+    justify-self: center;
+    max-width: 100%;
+    padding: 22px;
+    border-radius: 14px;
+  }
+  .entry-heading h2 {
+    font-size: 26px;
+    margin-top: 8px;
+  }
+  .entry-heading p {
+    font-size: 11px;
+    margin-top: 7px;
+  }
+  .entry-tabs {
+    margin-top: 19px;
+  }
+  .entry-tabs button {
+    font-size: 11px;
+    padding: 9px 7px;
+  }
+  .entry-form {
+    margin-top: 16px;
+    gap: 13px;
+  }
+  .entry-form label {
+    font-size: 11px;
+  }
+  .entry-form input {
+    font-size: 16px;
+    padding: 10px 12px;
+    margin-top: 7px;
+  }
+  .entry-form .button {
+    min-height: 43px;
+    font-size: 12px;
+  }
+  .entry-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+    margin: 17px 0;
+    padding-bottom: 16px;
+  }
+  .entry-details > span {
+    font-size: 9px;
+  }
+  .entry-details > span:last-child {
+    grid-column: 1 / -1;
+  }
+  .learn-button {
+    font-size: 10px;
+  }
+  .entry-footnote {
+    margin-top: 18px;
+    font-size: 8px;
+  }
+  .lounge-bottom {
+    font-size: 7px;
+    grid-column: 1;
+  }
+  .lounge-bottom > span {
+    font-size: 7px;
+  }
+  .lounge-bottom button {
+    font-size: 8px;
+  }
+  .lounge-bottom > span > svg {
+    width: 10px;
+    height: 10px;
+  }
+  .resume-content {
+    padding-top: 18px;
+  }
+  .resume-emblem {
+    width: 48px;
+    height: 54px;
+  }
+  .resume-content > strong {
+    margin-top: 13px;
+    font-size: 21px;
+  }
+  .resume-content > span:not(.resume-emblem) {
+    font-size: 10px;
+  }
+  .resume-content > button {
+    margin-top: 18px;
+  }
+  .table-screen {
+    grid-template-rows: 35px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .session-identity {
+    gap: 7px;
+  }
+  .session-identity h1 {
+    font-size: 14px;
+  }
+  .session-identity .connection-dot {
+    width: 4px;
+    height: 4px;
+    box-shadow: none;
+  }
+  .room-code {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    gap: 6px;
+    padding: 7px;
+  }
+  .room-code svg {
+    width: 11px;
+    height: 11px;
+  }
+  .session-tools {
+    gap: 6px;
+  }
+  .session-tools .button {
+    height: 31px;
+    min-height: 31px;
+    font-size: 9px;
+    gap: 5px;
+    padding: 0 9px;
+  }
+  .session-tools .invite-button {
+    padding: 0;
+    width: 31px;
+  }
+  .invite-button > span {
+    display: none;
+  }
+  .session-tools .table-exit {
+    padding: 0 8px;
+    font-size: 8px;
+  }
+  .session-tools .table-exit > svg {
+    width: 12px;
+    height: 12px;
+  }
+  .lobby-screen {
+    grid-template-rows: 37px minmax(0, 1fr) 50px;
+    gap: 10px;
+  }
+  .lobby-mobile-tabs button {
+    font-size: 10px;
+  }
+  .lobby-mobile-tabs button svg {
+    width: 14px;
+    height: 14px;
+  }
+  .guest-panel,
+  .settings-panel {
+    padding: 17px;
+    border-radius: 12px;
+  }
+  .guest-panel {
+    gap: 13px;
+    grid-template-rows: auto minmax(0, 1fr) 34px;
+  }
+  .panel-heading h2 {
+    font-size: 20px;
+    margin-top: 6px;
+  }
+  .panel-heading .overline {
+    font-size: 7px;
+  }
+  .badge {
+    font-size: 9px;
+    padding: 6px;
+    gap: 4px;
+  }
+  .badge svg {
+    width: 12px;
+    height: 12px;
+  }
+  .guest-grid {
+    gap: 8px;
+  }
+  .guest-seat {
+    border-radius: 8px;
+    padding: 12px 5px;
+  }
+  .guest-status {
+    font-size: 7px;
+    gap: 3px;
+    margin-bottom: 10px;
+  }
+  .guest-status svg {
+    width: 10px;
+    height: 10px;
+  }
+  .guest-seat .avatar {
+    width: 37px;
+    height: 37px;
+    font-size: 10px;
+  }
+  .guest-seat .avatar > svg {
+    width: 22px;
+    height: 22px;
+  }
+  .guest-seat h3 {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .guest-seat h3 > small {
+    font-size: 7px;
+  }
+  .guest-bankroll {
+    font-size: 9px;
+    gap: 3px;
+    margin-top: 6px;
+  }
+  .guest-bankroll small {
+    display: none;
+  }
+  .guest-bankroll svg {
+    width: 11px;
+    height: 11px;
+  }
+  .empty-avatar {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 10px;
+  }
+  .empty-avatar svg {
+    width: 15px;
+    height: 15px;
+  }
+  .empty-seat strong {
+    font-size: 9px;
+  }
+  .empty-seat > span:last-child {
+    font-size: 7px;
+    margin-top: 5px;
+  }
+  .guest-invite > span {
+    font-size: 8px;
+    gap: 5px;
+  }
+  .guest-invite > span > svg {
+    width: 11px;
+    height: 11px;
+  }
+  .guest-invite > .button {
+    font-size: 9px;
+    padding: 0 8px;
+    min-height: 31px;
+    gap: 5px;
+  }
+  .guest-invite .button > svg {
+    width: 11px;
+    height: 11px;
+  }
+  .settings-panel fieldset {
+    margin-top: 19px;
+  }
+  .field-label {
+    font-size: 10px;
+  }
+  .dealer-options {
+    gap: 8px;
+    margin-bottom: 18px;
+    margin-top: 7px;
+  }
+  .dealer-options > button {
+    padding: 15px 10px;
+    gap: 8px;
+  }
+  .dealer-options > button > svg:first-child {
+    width: 21px;
+    height: 21px;
+  }
+  .dealer-options strong {
+    font-size: 10px;
+  }
+  .dealer-options small {
+    font-size: 7px;
+    margin-top: 5px;
+  }
+  .settings-grid {
+    gap: 17px 12px;
+  }
+  .settings-grid label {
+    font-size: 10px;
+  }
+  .settings-grid select {
+    font-size: 12px;
+    margin-top: 7px;
+    min-height: 39px;
+    padding: 9px;
+  }
+  .first-dealer {
+    font-size: 10px;
+    margin-bottom: 16px;
+  }
+  .first-dealer select {
+    font-size: 12px;
+  }
+  .settings-note {
+    padding: 12px;
+    gap: 10px;
+  }
+  .settings-note p {
+    font-size: 9px;
+  }
+  .settings-note > svg {
+    width: 22px;
+    height: 22px;
+  }
+  .lobby-dock {
+    gap: 8px;
+  }
+  .lobby-dock .button {
+    min-height: 42px;
+    font-size: 10px;
+    padding: 0 12px;
+    gap: 7px;
+  }
+  .lobby-dock .button > svg {
+    width: 15px;
+    height: 15px;
+  }
+  .start-button {
+    min-width: 135px;
+  }
+  .lobby-ready {
+    flex: 1;
+  }
+  .lobby-ready > span:not(.inline-error) {
+    display: none;
+  }
+  .lobby-ready .inline-error {
+    font-size: 8px;
+    line-height: 1.5;
+  }
+  .waiting-badge {
+    font-size: 10px;
+  }
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 105px;
+    gap: 10px;
+  }
+  .felt-table {
+    --card-w: 54px;
+    --card-spread: 18px;
+    border-width: 5px;
+    border-radius: 55px 55px 27px 27px / 50px 50px 23px 23px;
+    margin: 2px 1px;
+  }
+  .felt-rail {
+    inset: 9px;
+    border-radius: 43px 43px 18px 18px / 38px 38px 16px 16px;
+  }
+  .table-corner-label {
+    font-size: 5px;
+    letter-spacing: 0.5px;
+    top: 22px;
+    left: 20px;
+    gap: 3px;
+  }
+  .table-corner-label > svg {
+    width: 8px;
+    height: 8px;
+  }
+  .card-shoe {
+    display: none;
+  }
+  .table-score-button {
+    top: 15px;
+    right: 16px;
+    width: 27px;
+    height: 27px;
+    border-radius: 7px;
+  }
+  .table-score-button svg {
+    width: 13px;
+    height: 13px;
+  }
+  .dealer-zone {
+    --card-w: 53px;
+    --card-spread: 23px;
+    top: 24px;
+    left: 22%;
+    right: 22%;
+  }
+  .dealer-name {
+    gap: 5px;
+    margin-bottom: 9px;
+    font-size: 9px;
+  }
+  .dealer-name > span:last-child {
+    font-size: 7px;
+    padding-left: 5px;
+  }
+  .house-avatar {
+    width: 18px;
+    height: 18px;
+  }
+  .house-avatar svg {
+    width: 10px;
+    height: 10px;
+  }
+  .dealer-name .avatar {
+    width: 19px;
+    height: 19px;
+    font-size: 6px;
+  }
+  .dealer-score {
+    height: 19px;
+    margin-top: 6px;
+    font-size: 9px;
+    padding: 0 5px;
+  }
+  .table-center {
+    top: 45%;
+    gap: 14px;
+    left: 8%;
+    right: 8%;
+  }
+  .table-wordmark > strong {
+    font-size: 29px;
+  }
+  .table-wordmark > span {
+    font-size: 5px;
+    letter-spacing: 1.6px;
+  }
+  .table-announcement > span:first-child {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .turn-clock {
+    font-size: 8px;
+    padding: 4px 5px;
+    min-width: 37px;
+  }
+  .turn-clock > svg {
+    width: 10px;
+    height: 10px;
+  }
+  .player-seats {
+    gap: 9px;
+    left: 4%;
+    right: 4%;
+    bottom: 26px;
+  }
+  .player-seat {
+    max-width: 150px;
+  }
+  .seat-hand-area {
+    height: calc(var(--card-h) + 12px);
+  }
+  .hand-score {
+    font-size: 8px;
+    height: 18px;
+    padding: 0 5px;
+    min-width: 23px;
+  }
+  .hand-score svg {
+    width: 8px;
+    height: 8px;
+  }
+  .hand-outcome {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+  .hand-tabs {
+    height: 23px;
+    gap: 2px;
+  }
+  .hand-tabs > button {
+    min-width: 23px;
+    height: 18px;
+    font-size: 7px;
+    padding: 0 3px;
+    gap: 3px;
+  }
+  .hand-tabs > button > span {
+    font-size: 6px;
+  }
+  .seat-bet {
+    font-size: 6px;
+  }
+  .seat-nameplate {
+    padding: 6px;
+    border-radius: 7px;
+    gap: 5px;
+  }
+  .seat-nameplate .avatar {
+    width: 23px;
+    height: 23px;
+    font-size: 6px;
+  }
+  .seat-nameplate .avatar svg {
+    width: 14px;
+    height: 14px;
+  }
+  .seat-nameplate strong {
+    font-size: 9px;
+  }
+  .seat-nameplate strong > small {
+    font-size: 6px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 8px;
+    margin-top: 3px;
+    gap: 3px;
+  }
+  .seat-nameplate > div > span > svg {
+    width: 9px;
+    height: 9px;
+  }
+  .table-bottom-label {
+    font-size: 4px;
+    letter-spacing: 1.2px;
+    bottom: 10px;
+    gap: 6px;
+  }
+  .table-bottom-label > span {
+    width: 10px;
+  }
+  .bet-spot {
+    gap: 5px;
+  }
+  .bet-spot > svg {
+    width: 22px;
+    height: 22px;
+  }
+  .bet-spot > span:not(.chip) {
+    font-size: 6px;
+  }
+  .bet-spot .chip {
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+  }
+  .bet-spot .chip > span {
+    font-size: 8px;
+  }
+  .bet-spot strong {
+    font-size: 8px;
+  }
+  .seats-4,
+  .seats-5,
+  .seats-6 {
+    --card-w: 42px;
+    --card-spread: 13px;
+  }
+  .seats-4 .player-seats,
+  .seats-5 .player-seats,
+  .seats-6 .player-seats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px 8px;
+    bottom: 23px;
+  }
+  .seats-4 .table-wordmark,
+  .seats-5 .table-wordmark,
+  .seats-6 .table-wordmark {
+    display: none;
+  }
+  .seats-4 .table-center,
+  .seats-5 .table-center,
+  .seats-6 .table-center {
+    top: 30%;
+  }
+  .seats-4 .seat-nameplate,
+  .seats-5 .seat-nameplate,
+  .seats-6 .seat-nameplate {
+    padding: 5px;
+  }
+  .seats-4 .seat-nameplate .avatar,
+  .seats-5 .seat-nameplate .avatar,
+  .seats-6 .seat-nameplate .avatar {
+    display: none;
+  }
+  .seats-4 .seat-nameplate strong,
+  .seats-5 .seat-nameplate strong,
+  .seats-6 .seat-nameplate strong {
+    font-size: 8px;
+  }
+  .seats-4 .seat-nameplate > div > span,
+  .seats-5 .seat-nameplate > div > span,
+  .seats-6 .seat-nameplate > div > span {
+    font-size: 7px;
+  }
+  .seats-4 .hand-tabs,
+  .seats-5 .hand-tabs,
+  .seats-6 .hand-tabs {
+    height: 19px;
+  }
+  .seats-4 .hand-tabs > button,
+  .seats-5 .hand-tabs > button,
+  .seats-6 .hand-tabs > button {
+    min-width: 18px;
+    font-size: 6px;
+    padding: 0 2px;
+    gap: 2px;
+  }
+  .seats-4 .hand-tabs > button > span,
+  .seats-5 .hand-tabs > button > span,
+  .seats-6 .hand-tabs > button > span {
+    font-size: 5px;
+  }
+  .control-dock {
+    position: relative;
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    grid-template-rows: 27px minmax(0, 1fr);
+    gap: 7px 12px;
+    padding: 11px 12px;
+    border-radius: 11px;
+  }
+  .your-bankroll {
+    padding-right: 10px;
+    gap: 5px;
+    grid-row: 1 / -1;
+    height: 100%;
+  }
+  .bankroll-icon {
+    display: none;
+  }
+  .your-bankroll > div > span {
+    font-size: 9px;
+  }
+  .your-bankroll strong {
+    font-size: 23px;
+    letter-spacing: -0.6px;
+    margin-top: 4px;
+  }
+  .move-context {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+    min-width: 0;
+  }
+  .move-context strong {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .move-context > span {
+    font-size: 7px;
+    margin: 0;
+    text-align: right;
+    max-width: 110px;
+    line-height: 1.4;
+  }
+  .game-actions {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    gap: 5px;
+  }
+  .move-button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px 3px;
+    border-radius: 6px;
+  }
+  .move-button > svg {
+    width: 14px;
+    height: 14px;
+  }
+  .move-button strong {
+    font-size: 9px;
+  }
+  .move-button small {
+    display: none;
+  }
+  .round-controls {
+    grid-column: 2;
+    grid-row: 2;
+    gap: 6px;
+  }
+  .round-controls .button {
+    flex: 1;
+    min-height: 37px;
+    padding: 0 8px;
+    font-size: 10px;
+    gap: 5px;
+  }
+  .round-controls .button svg {
+    width: 13px;
+    height: 13px;
+  }
+  .dealer-action {
+    grid-column: 2;
+    grid-row: 2;
+    min-height: 36px;
+    font-size: 10px;
+    padding: 0 8px;
+    gap: 6px;
+  }
+  .dealer-action svg {
+    width: 14px;
+    height: 14px;
+  }
+  .results-dock .move-context > span {
+    display: none;
+  }
+  .results-dock .move-context strong {
+    font-size: 11px;
+  }
+  .move-context .profit,
+  .move-context .loss {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+  .betting-dock {
+    grid-template-columns: 75px minmax(0, 1fr) 93px;
+    grid-template-rows: 31px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .betting-dock .your-bankroll {
+    grid-row: 1 / -1;
+    padding-right: 7px;
+  }
+  .betting-dock .your-bankroll strong {
+    font-size: 22px;
+  }
+  .bet-picker {
+    grid-column: 2;
+    grid-row: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+  }
+  .bet-picker label {
+    font-size: 7px;
+    line-height: 1.5;
+    max-width: 24px;
+  }
+  .bet-stepper {
+    flex-shrink: 0;
+  }
+  .bet-stepper button {
+    height: 28px;
+    width: 21px;
+  }
+  .bet-stepper input {
+    width: 44px;
+    height: 28px;
+    font-size: 12px;
+  }
+  .bet-stepper button > svg {
+    width: 10px;
+    height: 10px;
+  }
+  .chip-choices {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    gap: 4px;
+    justify-content: space-between;
+  }
+  .chip-choices > button {
+    font-size: 8px;
+    padding: 4px;
+    flex: 1;
+    gap: 0;
+    border-color: var(--line);
+    background: var(--bg);
+  }
+  .chip-choices .chip {
+    display: none;
+  }
+  .chip-choices > button.selected {
+    background: var(--gold-soft);
+    border-color: var(--gold);
+  }
+  .deal-button {
+    grid-column: 3;
+    grid-row: 1 / -1;
+    min-width: 0;
+    width: 100%;
+    align-self: stretch;
+    flex-direction: column-reverse;
+    gap: 8px;
+    font-size: 11px;
+    padding: 0 7px;
+  }
+  .deal-button svg {
+    width: 21px;
+    height: 21px;
+  }
+  .dialog-scrim {
+    padding: 14px;
+  }
+  .game-dialog {
+    padding: 21px;
+    border-radius: 15px;
+  }
+  .dialog-heading {
+    margin-bottom: 14px;
+  }
+  .game-dialog h2 {
+    font-size: 25px;
+  }
+  .rules-body {
+    min-height: 330px;
+  }
+  .rules-body > p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .lesson-mark {
+    width: 60px;
+    height: 77px;
+    font-size: 22px;
+    margin-bottom: 23px;
+  }
+  .lesson-detail {
+    font-size: 10px;
+    padding: 11px;
+    margin-top: 18px;
+  }
+  .dialog-footer {
+    margin-top: 20px;
+    padding-top: 17px;
+    gap: 10px;
+  }
+  .dialog-footer .button {
+    min-height: 38px;
+    font-size: 10px;
+    padding: 0 12px;
+  }
+  .page-dots {
+    gap: 2px;
+  }
+  .page-dots button {
+    padding: 8px 3px;
+  }
+  .score-dialog-content {
+    height: 325px;
+  }
+  .leave-dialog > p {
+    font-size: 12px;
+  }
+  .leave-explanation {
+    font-size: 10px;
+  }
+  .toast {
+    font-size: 11px;
+    bottom: 14px;
+    padding: 11px 13px;
+  }
+}
+@media (max-height: 760px) and (min-width: 761px) {
+  .casino-app {
+    --header-h: 62px;
+  }
+  .game-viewport {
+    padding-top: 14px;
+    padding-bottom: 16px;
+  }
+  .table-screen {
+    gap: 12px;
+    grid-template-rows: 35px minmax(0, 1fr);
+  }
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 87px;
+    gap: 12px;
+  }
+  .felt-table {
+    --card-w: 59px;
+    --card-spread: 18px;
+  }
+  .seats-5,
+  .seats-6 {
+    --card-w: 49px;
+    --card-spread: 14px;
+  }
+  .dealer-zone {
+    --card-w: 52px;
+    --card-spread: 24px;
+    top: 18px;
+  }
+  .dealer-name {
+    margin-bottom: 8px;
+  }
+  .dealer-score {
+    height: 20px;
+    font-size: 9px;
+    margin-top: 5px;
+  }
+  .table-center {
+    top: 42%;
+    gap: 10px;
+  }
+  .table-wordmark > strong {
+    font-size: 28px;
+  }
+  .player-seats {
+    bottom: 25px;
+  }
+  .hand-tabs {
+    height: 24px;
+  }
+  .seat-nameplate {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .seat-nameplate .avatar {
+    width: 25px;
+    height: 25px;
+  }
+  .table-bottom-label {
+    bottom: 9px;
+  }
+  .control-dock {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+  .table-sidebar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .standing {
+    padding: 7px 0;
+  }
+  .standing .avatar {
+    width: 25px;
+    height: 25px;
+  }
+  .activity-heading {
+    margin-top: 17px;
+  }
+  .activity-list {
+    margin-top: 11px;
+    gap: 10px;
+  }
+  .activity-list > p {
+    font-size: 9px;
+  }
+  .rail-footnote {
+    margin-top: 12px;
+    font-size: 8px;
+  }
+  .rail-overview {
+    min-height: 30px;
+  }
+  .lounge-art {
+    height: min(29vh, 235px);
+  }
+  .lounge-copy h1 {
+    font-size: 47px;
+  }
+  .club-label {
+    margin-bottom: 15px;
+  }
+  .lounge-copy p {
+    margin-top: 12px;
+    font-size: 11px;
+  }
+  .entry-panel {
+    padding: 25px 28px;
+  }
+  .entry-heading h2 {
+    font-size: 27px;
+  }
+  .entry-tabs {
+    margin-top: 20px;
+  }
+  .entry-form {
+    margin-top: 19px;
+    gap: 13px;
+  }
+  .entry-details {
+    margin: 19px 0;
+    padding-bottom: 17px;
+  }
+  .entry-footnote {
+    margin-top: 18px;
+  }
+  .lobby-screen {
+    grid-template-rows: minmax(0, 1fr) 50px;
+    gap: 12px;
+  }
+  .guest-panel,
+  .settings-panel {
+    padding: 20px;
+  }
+  .guest-panel {
+    gap: 14px;
+    grid-template-rows: auto minmax(0, 1fr) 35px;
+  }
+  .panel-heading h2 {
+    font-size: 22px;
+  }
+  .guest-seat {
+    padding: 10px 5px;
+  }
+  .guest-seat .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 11px;
+  }
+  .guest-status {
+    margin-bottom: 8px;
+  }
+  .guest-seat h3 {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+  .empty-avatar {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 8px;
+  }
+  .settings-panel fieldset {
+    margin-top: 17px;
+  }
+  .dealer-options {
+    margin-bottom: 14px;
+  }
+  .dealer-options > button {
+    padding: 12px 9px;
+  }
+  .settings-grid {
+    gap: 12px 13px;
+  }
+  .settings-grid select {
+    min-height: 35px;
+    padding: 8px;
+    margin-top: 6px;
+  }
+  .first-dealer {
+    margin-bottom: 10px;
+  }
+  .settings-note {
+    padding: 10px 12px;
+  }
+  .settings-note p {
+    font-size: 9px;
+  }
+  .settings-note svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+@media (max-height: 700px) and (max-width: 560px) and (orientation: portrait) {
+  .casino-app {
+    --header-h: 52px;
+  }
+  .game-viewport {
+    padding: 9px 11px 11px;
+  }
+  .lounge-screen {
+    grid-template-rows: minmax(50px, 1fr) auto 12px;
+    gap: 9px;
+  }
+  .lounge-copy h1 {
+    font-size: 25px;
+    line-height: 1.1;
+  }
+  .club-label {
+    margin-bottom: 7px;
+    font-size: 6px;
+  }
+  .lounge-copy p {
+    display: none;
+  }
+  .lounge-art {
+    height: 115px;
+  }
+  .showcase-card .playing-card {
+    --card-w: 51px;
+    --card-h: 73px;
+  }
+  .showcase-ace {
+    left: 17%;
+    top: 28%;
+  }
+  .showcase-jack {
+    left: 51%;
+    top: 9%;
+  }
+  .showcase-chip .chip {
+    width: 24px;
+    height: 24px;
+  }
+  .chip-first {
+    bottom: 0;
+  }
+  .chip-second {
+    bottom: 17%;
+  }
+  .art-ring {
+    width: 145px;
+    height: 110px;
+  }
+  .ring-inner {
+    width: 120px;
+    height: 90px;
+  }
+  .twentyone-stamp {
+    bottom: -3%;
+    left: 12%;
+  }
+  .twentyone-stamp strong {
+    font-size: 22px;
+  }
+  .twentyone-stamp > span {
+    display: none;
+  }
+  .suit-club,
+  .suit-diamond {
+    display: none;
+  }
+  .entry-panel {
+    padding: 17px 19px;
+  }
+  .entry-heading .overline {
+    font-size: 7px;
+  }
+  .entry-heading h2 {
+    font-size: 23px;
+    margin-top: 6px;
+  }
+  .entry-heading p {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+  .entry-tabs {
+    margin-top: 15px;
+  }
+  .entry-tabs button {
+    padding: 8px 5px;
+    font-size: 10px;
+  }
+  .entry-form {
+    margin-top: 13px;
+    gap: 11px;
+  }
+  .entry-form label {
+    font-size: 10px;
+  }
+  .entry-form input {
+    padding: 9px 11px;
+    margin-top: 6px;
+  }
+  .entry-form .button {
+    min-height: 39px;
+    font-size: 11px;
+    margin-top: 1px;
+  }
+  .entry-details {
+    display: flex;
+    gap: 9px 15px;
+    margin: 14px 0;
+    padding-bottom: 13px;
+  }
+  .entry-details > span {
+    font-size: 8px;
+  }
+  .entry-details > span:last-child {
+    display: none;
+  }
+  .entry-footnote {
+    margin-top: 13px;
+    font-size: 7px;
+  }
+  .learn-button {
+    font-size: 9px;
+  }
+  .lounge-bottom > span {
+    font-size: 6px;
+  }
+  .lounge-bottom button {
+    font-size: 7px;
+  }
+  .resume-content {
+    padding-top: 14px;
+  }
+  .resume-emblem {
+    width: 38px;
+    height: 44px;
+  }
+  .resume-emblem svg {
+    width: 23px;
+    height: 23px;
+  }
+  .resume-content > strong {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .resume-content > button {
+    margin-top: 14px;
+  }
+  .table-screen {
+    grid-template-rows: 31px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .session-identity h1 {
+    font-size: 13px;
+  }
+  .session-tools .button {
+    min-height: 29px;
+    height: 29px;
+  }
+  .lobby-screen {
+    grid-template-rows: 34px minmax(0, 1fr) 44px;
+    gap: 9px;
+  }
+  .guest-panel,
+  .settings-panel {
+    padding: 14px;
+  }
+  .guest-panel {
+    gap: 10px;
+    grid-template-rows: auto minmax(0, 1fr) 31px;
+  }
+  .panel-heading h2 {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  .guest-grid {
+    gap: 7px;
+  }
+  .guest-seat {
+    padding: 8px 4px;
+  }
+  .guest-seat .avatar {
+    width: 31px;
+    height: 31px;
+    font-size: 9px;
+  }
+  .guest-seat .avatar > svg {
+    width: 19px;
+    height: 19px;
+  }
+  .guest-status {
+    margin-bottom: 7px;
+    font-size: 6px;
+  }
+  .guest-status > svg {
+    width: 9px;
+    height: 9px;
+  }
+  .guest-seat h3 {
+    font-size: 9px;
+    margin-top: 7px;
+  }
+  .guest-bankroll {
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  .empty-avatar {
+    width: 29px;
+    height: 29px;
+    margin-bottom: 8px;
+  }
+  .empty-seat strong {
+    font-size: 8px;
+  }
+  .empty-seat > span:last-child {
+    font-size: 6px;
+  }
+  .guest-invite > span {
+    font-size: 7px;
+  }
+  .guest-invite .button {
+    font-size: 8px;
+    min-height: 28px;
+  }
+  .lobby-dock .button {
+    min-height: 39px;
+  }
+  .settings-panel fieldset {
+    margin-top: 14px;
+  }
+  .dealer-options {
+    margin-bottom: 14px;
+  }
+  .dealer-options > button {
+    padding: 12px 9px;
+    gap: 6px;
+  }
+  .dealer-options strong {
+    font-size: 9px;
+  }
+  .dealer-options small {
+    font-size: 6px;
+  }
+  .dealer-options > button > svg:first-child {
+    width: 18px;
+    height: 18px;
+  }
+  .settings-grid {
+    gap: 13px 11px;
+  }
+  .settings-grid label {
+    font-size: 9px;
+  }
+  .settings-grid select {
+    min-height: 34px;
+    padding: 7px 8px;
+    margin-top: 6px;
+    font-size: 11px;
+  }
+  .first-dealer {
+    margin-bottom: 12px;
+    font-size: 9px;
+  }
+  .first-dealer select {
+    font-size: 11px;
+    padding: 6px 9px;
+  }
+  .settings-note {
+    padding: 9px;
+    margin-top: auto;
+  }
+  .settings-note p {
+    font-size: 8px;
+  }
+  .settings-note svg {
+    width: 19px;
+    height: 19px;
+  }
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 96px;
+    gap: 9px;
+  }
+  .felt-table {
+    --card-w: 48px;
+  }
+  .dealer-zone {
+    --card-w: 45px;
+    top: 20px;
+  }
+  .dealer-name {
+    margin-bottom: 7px;
+    font-size: 8px;
+  }
+  .dealer-name > span:last-child {
+    font-size: 6px;
+  }
+  .table-center {
+    top: 41%;
+    gap: 10px;
+  }
+  .table-wordmark > strong {
+    font-size: 26px;
+  }
+  .table-wordmark > span {
+    font-size: 4px;
+  }
+  .table-announcement > span:first-child {
+    font-size: 9px;
+  }
+  .player-seats {
+    bottom: 22px;
+    gap: 7px;
+  }
+  .seats-4,
+  .seats-5,
+  .seats-6 {
+    --card-w: 37px;
+    --card-spread: 11px;
+  }
+  .seats-4 .player-seats,
+  .seats-5 .player-seats,
+  .seats-6 .player-seats {
+    gap: 10px 7px;
+    bottom: 21px;
+  }
+  .seats-4 .table-center,
+  .seats-5 .table-center,
+  .seats-6 .table-center {
+    top: 31%;
+  }
+  .seats-4 .seat-nameplate,
+  .seats-5 .seat-nameplate,
+  .seats-6 .seat-nameplate {
+    padding: 4px 5px;
+  }
+  .seats-4 .seat-nameplate strong,
+  .seats-5 .seat-nameplate strong,
+  .seats-6 .seat-nameplate strong {
+    font-size: 7px;
+  }
+  .seats-4 .seat-nameplate > div > span,
+  .seats-5 .seat-nameplate > div > span,
+  .seats-6 .seat-nameplate > div > span {
+    font-size: 6px;
+  }
+  .table-bottom-label {
+    bottom: 8px;
+    font-size: 3px;
+  }
+  .control-dock {
+    padding: 9px 11px;
+    grid-template-rows: 24px minmax(0, 1fr);
+    gap: 6px 10px;
+  }
+  .betting-dock {
+    grid-template-rows: 30px minmax(0, 1fr);
+    gap: 7px;
+  }
+  .your-bankroll strong {
+    font-size: 22px;
+  }
+  .game-dialog {
+    padding: 18px 20px;
+  }
+  .rules-body {
+    min-height: 290px;
+  }
+  .lesson-mark {
+    width: 47px;
+    height: 59px;
+    font-size: 19px;
+    margin-bottom: 17px;
+  }
+  .lesson-mark svg {
+    width: 13px;
+    height: 13px;
+  }
+  .game-dialog h2 {
+    font-size: 23px;
+  }
+  .rules-body > p {
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 12px;
+  }
+  .lesson-detail {
+    font-size: 9px;
+    padding: 10px;
+    margin-top: 15px;
+  }
+  .dialog-heading {
+    margin-bottom: 10px;
+  }
+  .dialog-footer {
+    margin-top: 16px;
+    padding-top: 14px;
+  }
+  .score-dialog-content {
+    height: 288px;
+  }
+  .score-dialog .standing {
+    padding: 7px 2px;
+  }
+  .score-dialog .standing strong {
+    font-size: 11px;
+  }
+  .score-dialog .standing > b {
+    font-size: 12px;
+  }
+}
+@media (max-height: 580px) and (min-width: 561px) {
+  .casino-app {
+    --header-h: 50px;
+  }
+  .game-header {
+    padding: 0 18px;
+  }
+  .brand-emblem {
+    width: 25px;
+    height: 30px;
+  }
+  .brand > span:last-child {
+    font-size: 20px;
+  }
+  .brand small {
+    display: none;
+  }
+  .main-nav button {
+    font-size: 10px;
+    height: 31px;
+  }
+  .header-tools .icon-button {
+    width: 29px;
+    height: 29px;
+  }
+  .game-viewport {
+    padding: 9px 16px 12px;
+  }
+  .lounge-screen {
+    grid-template-columns: minmax(0, 1fr) minmax(290px, 0.95fr);
+    grid-template-rows: minmax(0, 1fr);
+    gap: 12px 25px;
+    max-width: 1000px;
+  }
+  .lounge-bottom {
+    display: none;
+  }
+  .lounge-copy h1 {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+  }
+  .club-label {
+    font-size: 7px;
+    margin-bottom: 11px;
+  }
+  .lounge-copy p {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .lounge-art {
+    height: min(33vh, 160px);
+    min-height: 100px;
+  }
+  .showcase-card .playing-card {
+    --card-w: 71px;
+    --card-h: 101px;
+  }
+  .showcase-ace {
+    left: 28%;
+    top: 15%;
+  }
+  .showcase-jack {
+    left: 49%;
+    top: 2%;
+  }
+  .showcase-chip .chip {
+    width: 29px;
+    height: 29px;
+    padding: 3px;
+  }
+  .showcase-chip .chip > span {
+    font-size: 8px;
+  }
+  .chip-first {
+    right: 18%;
+    bottom: 2%;
+  }
+  .chip-second {
+    right: 8%;
+    bottom: 17%;
+  }
+  .twentyone-stamp {
+    left: 15%;
+    bottom: 2%;
+  }
+  .twentyone-stamp strong {
+    font-size: 29px;
+  }
+  .twentyone-stamp span {
+    font-size: 4px;
+  }
+  .art-ring {
+    width: 220px;
+    height: 140px;
+  }
+  .ring-inner {
+    width: 190px;
+    height: 115px;
+  }
+  .lounge-caption {
+    display: none;
+  }
+  .suit-club {
+    font-size: 19px;
+    left: 16%;
+  }
+  .suit-diamond {
+    font-size: 21px;
+    right: 10%;
+  }
+  .entry-panel {
+    padding: 18px 21px;
+  }
+  .entry-heading .overline {
+    font-size: 7px;
+  }
+  .entry-heading h2 {
+    font-size: 22px;
+    margin-top: 6px;
+  }
+  .entry-heading p {
+    display: none;
+  }
+  .entry-tabs {
+    margin-top: 13px;
+  }
+  .entry-tabs button {
+    padding: 7px 5px;
+    font-size: 9px;
+  }
+  .entry-form {
+    margin-top: 12px;
+    gap: 10px;
+  }
+  .entry-form label {
+    font-size: 9px;
+  }
+  .entry-form input {
+    padding: 8px 10px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  .entry-form .button {
+    min-height: 34px;
+    margin: 0;
+    font-size: 10px;
+  }
+  .entry-details {
+    margin: 12px 0;
+    padding-bottom: 11px;
+    gap: 7px 12px;
+  }
+  .entry-details > span {
+    font-size: 8px;
+  }
+  .entry-details > span:last-child {
+    display: none;
+  }
+  .entry-details > span > svg {
+    width: 11px;
+    height: 11px;
+  }
+  .entry-footnote {
+    display: none;
+  }
+  .learn-button {
+    font-size: 9px;
+  }
+  .resume-content {
+    padding-top: 12px;
+  }
+  .resume-emblem {
+    display: none;
+  }
+  .resume-content > strong {
+    font-size: 18px;
+    margin-top: 0;
+  }
+  .resume-content > span:not(.resume-emblem) {
+    font-size: 9px;
+  }
+  .resume-content > button {
+    margin-top: 13px;
+    min-height: 35px;
+    font-size: 10px;
+  }
+  .table-screen {
+    grid-template-rows: 30px minmax(0, 1fr);
+    gap: 9px;
+  }
+  .session-identity h1 {
+    font-size: 13px;
+  }
+  .session-tools .button {
+    min-height: 29px;
+    height: 29px;
+    font-size: 9px;
+  }
+  .session-mode {
+    font-size: 8px;
+  }
+  .room-code {
+    font-size: 9px;
+    padding: 6px 8px;
+  }
+  .lobby-screen {
+    grid-template-rows: minmax(0, 1fr) 40px;
+    gap: 8px;
+  }
+  .lobby-mobile-tabs {
+    display: none;
+  }
+  .lobby-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 1fr);
+    gap: 13px;
+  }
+  .show-players .settings-panel,
+  .show-settings .guest-panel {
+    display: flex;
+  }
+  .guest-panel,
+  .show-settings .guest-panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    padding: 15px;
+    gap: 10px;
+  }
+  .settings-panel {
+    padding: 15px;
+  }
+  .panel-heading .overline {
+    font-size: 6px;
+  }
+  .panel-heading h2 {
+    font-size: 17px;
+    margin-top: 5px;
+  }
+  .panel-heading > svg {
+    width: 18px;
+    height: 18px;
+  }
+  .badge {
+    font-size: 8px;
+    padding: 5px;
+  }
+  .guest-grid {
+    gap: 7px;
+  }
+  .guest-seat {
+    padding: 6px 4px;
+    border-radius: 7px;
+  }
+  .guest-status {
+    font-size: 6px;
+    margin-bottom: 5px;
+  }
+  .guest-status > svg {
+    width: 8px;
+    height: 8px;
+  }
+  .guest-seat .avatar {
+    width: 27px;
+    height: 27px;
+    font-size: 8px;
+  }
+  .guest-seat .avatar > svg {
+    width: 16px;
+    height: 16px;
+  }
+  .guest-seat h3 {
+    font-size: 9px;
+    margin-top: 5px;
+  }
+  .guest-bankroll {
+    font-size: 8px;
+    margin-top: 4px;
+  }
+  .guest-bankroll > svg {
+    width: 10px;
+    height: 10px;
+  }
+  .guest-bankroll small {
+    display: none;
+  }
+  .empty-avatar {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 5px;
+  }
+  .empty-avatar svg {
+    width: 12px;
+    height: 12px;
+  }
+  .empty-seat strong {
+    font-size: 8px;
+  }
+  .empty-seat > span:last-child {
+    display: none;
+  }
+  .guest-invite {
+    display: none;
+  }
+  .settings-panel fieldset {
+    margin-top: 12px;
+  }
+  .field-label {
+    font-size: 8px;
+  }
+  .dealer-options {
+    margin: 5px 0 10px;
+    gap: 7px;
+  }
+  .dealer-options > button {
+    padding: 9px 7px;
+    gap: 6px;
+  }
+  .dealer-options > button > svg:first-child {
+    width: 17px;
+    height: 17px;
+  }
+  .dealer-options strong {
+    font-size: 9px;
+  }
+  .dealer-options small {
+    display: none;
+  }
+  .settings-grid {
+    gap: 9px 11px;
+  }
+  .settings-grid label {
+    font-size: 8px;
+  }
+  .settings-grid select {
+    min-height: 29px;
+    padding: 6px;
+    margin-top: 4px;
+    font-size: 10px;
+  }
+  .first-dealer {
+    font-size: 8px;
+    margin-bottom: 9px;
+  }
+  .first-dealer select {
+    font-size: 10px;
+    padding: 4px 7px;
+  }
+  .settings-note {
+    display: none;
+  }
+  .lobby-dock .button {
+    min-height: 34px;
+    font-size: 10px;
+  }
+  .start-button {
+    min-width: 140px;
+  }
+  .lobby-ready > span {
+    font-size: 9px;
+  }
+  .lobby-ready > span:not(.inline-error) {
+    display: flex;
+  }
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 70px;
+    gap: 9px;
+  }
+  .table-sidebar {
+    display: none;
+  }
+  .game-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .felt-table {
+    --card-w: 42px;
+    --card-spread: 16px;
+    border-width: 5px;
+    border-radius: 60px 60px 25px 25px / 45px 45px 20px 20px;
+    margin: 1px;
+  }
+  .felt-rail {
+    inset: 8px;
+    border-radius: 48px 48px 17px 17px / 33px 33px 13px 13px;
+  }
+  .table-score-button {
+    display: grid;
+    top: 13px;
+    right: 17px;
+    width: 27px;
+    height: 27px;
+  }
+  .table-corner-label {
+    font-size: 5px;
+    top: 19px;
+    left: 26px;
+  }
+  .card-shoe {
+    display: none;
+  }
+  .dealer-zone {
+    --card-w: 37px;
+    --card-spread: 15px;
+    top: 14px;
+    left: 5%;
+    right: auto;
+    width: 20%;
+  }
+  .dealer-name {
+    font-size: 8px;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .dealer-name > span:last-child {
+    font-size: 6px;
+    padding-left: 4px;
+  }
+  .house-avatar,
+  .dealer-name .avatar {
+    width: 16px;
+    height: 16px;
+  }
+  .house-avatar svg {
+    width: 9px;
+    height: 9px;
+  }
+  .dealer-score {
+    height: 16px;
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  .table-center {
+    left: 4%;
+    right: auto;
+    width: 22%;
+    top: auto;
+    bottom: 13px;
+    gap: 0;
+  }
+  .table-wordmark {
+    display: none;
+  }
+  .table-announcement {
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .table-announcement > span:first-child {
+    font-size: 8px;
+    gap: 4px;
+  }
+  .table-announcement .status-dot {
+    width: 3px;
+    height: 3px;
+  }
+  .turn-clock {
+    font-size: 7px;
+    min-width: 32px;
+    padding: 3px 4px;
+  }
+  .turn-clock svg {
+    width: 9px;
+    height: 9px;
+  }
+  .player-seats {
+    left: 29%;
+    right: 5%;
+    bottom: 23px;
+    gap: 8px;
+  }
+  .seats-5,
+  .seats-6 {
+    --card-w: 35px;
+    --card-spread: 11px;
+  }
+  .seat-hand-area {
+    height: calc(var(--card-h) + 11px);
+  }
+  .hand-score {
+    height: 16px;
+    font-size: 7px;
+    min-width: 21px;
+    padding: 0 4px;
+  }
+  .hand-tabs {
+    height: 19px;
+  }
+  .seat-bet {
+    font-size: 6px;
+  }
+  .seat-nameplate {
+    padding: 5px 6px;
+    border-radius: 6px;
+  }
+  .seat-nameplate .avatar {
+    display: none;
+  }
+  .seat-nameplate strong {
+    font-size: 8px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 7px;
+    margin-top: 3px;
+  }
+  .seat-nameplate > div > span > svg {
+    width: 8px;
+    height: 8px;
+  }
+  .table-bottom-label {
+    left: 34%;
+    right: 10%;
+    bottom: 8px;
+    font-size: 4px;
+  }
+  .hand-tabs > button {
+    min-width: 20px;
+    font-size: 6px;
+    height: 16px;
+    gap: 2px;
+    padding: 0 3px;
+  }
+  .hand-tabs > button > span {
+    font-size: 5px;
+  }
+  .hand-outcome {
+    font-size: 8px;
+    padding: 3px 5px;
+  }
+  .bet-spot {
+    gap: 5px;
+  }
+  .bet-spot > svg {
+    width: 17px;
+    height: 17px;
+  }
+  .bet-spot > span:not(.chip) {
+    font-size: 6px;
+  }
+  .bet-spot .chip {
+    width: 26px;
+    height: 26px;
+    padding: 3px;
+  }
+  .bet-spot .chip > span {
+    font-size: 7px;
+  }
+  .bet-spot strong {
+    font-size: 8px;
+  }
+  .control-dock {
+    display: flex;
+    padding: 9px 13px;
+    gap: 13px;
+  }
+  .your-bankroll {
+    padding-right: 13px;
+    gap: 6px;
+  }
+  .bankroll-icon {
+    display: none;
+  }
+  .your-bankroll > div > span {
+    font-size: 8px;
+  }
+  .your-bankroll strong {
+    font-size: 20px;
+  }
+  .move-context {
+    display: block;
+  }
+  .move-context strong {
+    font-size: 11px;
+  }
+  .move-context > span {
+    margin-top: 4px;
+    font-size: 8px;
+    max-width: none;
+  }
+  .game-actions {
+    gap: 6px;
+    width: min(52%, 360px);
+  }
+  .move-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 11px 8px;
+  }
+  .move-button small {
+    display: none;
+  }
+  .move-button svg {
+    width: 13px;
+    height: 13px;
+  }
+  .move-button strong {
+    font-size: 10px;
+  }
+  .bet-picker {
+    gap: 4px;
+  }
+  .bet-picker label {
+    font-size: 7px;
+  }
+  .bet-stepper button,
+  .bet-stepper input {
+    height: 27px;
+  }
+  .chip-choices {
+    gap: 6px;
+  }
+  .chip-choices > button {
+    padding: 3px;
+    gap: 3px;
+  }
+  .chip-choices .chip.small {
+    width: 25px;
+    height: 25px;
+    padding: 3px;
+  }
+  .chip-choices .chip.small > span {
+    font-size: 6px;
+  }
+  .chip-choices > button > span:last-child {
+    font-size: 7px;
+  }
+  .deal-button {
+    min-height: 37px;
+    min-width: 100px;
+    font-size: 10px;
+  }
+  .round-controls .button,
+  .dealer-action {
+    min-height: 36px;
+    font-size: 10px;
+  }
+  .dialog-scrim {
+    padding: 12px;
+  }
+  .game-dialog {
+    width: 600px;
+    padding: 16px 22px;
+  }
+  .dialog-heading {
+    margin-bottom: 8px;
+  }
+  .dialog-heading .icon-button {
+    width: 27px;
+    height: 27px;
+  }
+  .rules-body {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    grid-template-rows: auto auto auto auto;
+    column-gap: 20px;
+    align-content: start;
+  }
+  .lesson-mark {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    margin: 6px 0 0 3px;
+    width: 55px;
+    height: 74px;
+    font-size: 23px;
+  }
+  .rules-body .overline {
+    grid-column: 2;
+    margin-bottom: 7px;
+    font-size: 7px;
+  }
+  .rules-body h2 {
+    grid-column: 2;
+    font-size: 23px;
+  }
+  .rules-body > p {
+    grid-column: 2;
+    font-size: 10px;
+    margin-top: 9px;
+    line-height: 1.7;
+  }
+  .lesson-detail {
+    grid-column: 2;
+    font-size: 9px;
+    padding: 8px 10px;
+    margin-top: 11px;
+    line-height: 1.6;
+  }
+  .dialog-footer {
+    margin-top: 13px;
+    padding-top: 11px;
+  }
+  .dialog-footer .button {
+    min-height: 32px;
+    font-size: 10px;
+  }
+  .dialog-footer .icon-button {
+    width: 30px;
+    height: 30px;
+  }
+  .score-dialog {
+    width: 520px;
+  }
+  .score-dialog h2 {
+    font-size: 22px;
+  }
+  .score-dialog .segmented {
+    margin-top: 10px;
+  }
+  .score-dialog-content {
+    height: 150px;
+  }
+  .score-dialog .standings {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    margin-top: 9px;
+  }
+  .score-dialog .standing {
+    padding: 6px 0;
+  }
+  .score-dialog .standing .avatar {
+    width: 25px;
+    height: 25px;
+  }
+  .score-dialog .standing strong {
+    font-size: 10px;
+  }
+  .score-dialog .standing > b {
+    font-size: 11px;
+  }
+  .score-dialog .standing > div > span {
+    font-size: 7px;
+    margin-top: 2px;
+  }
+  .score-dialog .activity-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 17px;
+    margin-top: 10px;
+  }
+  .score-dialog .activity-list > p {
+    min-height: 35px;
+    font-size: 9px;
+    padding: 8px 0;
+  }
+  .leave-dialog {
+    width: 500px;
+  }
+  .leave-emblem {
+    display: none;
+  }
+  .leave-dialog h2 {
+    font-size: 24px;
+  }
+  .leave-dialog > p {
+    font-size: 11px;
+    margin-top: 10px;
+    line-height: 1.7;
+  }
+  .leave-explanation {
+    font-size: 10px;
+    margin-top: 12px;
+    padding: 10px;
+  }
+}
+@media (max-height: 410px) and (min-width: 561px) {
+  .lounge-copy h1 {
+    font-size: 31px;
+  }
+  .lounge-copy p {
+    display: none;
+  }
+  .lounge-art {
+    height: 123px;
+    min-height: 0;
+  }
+  .showcase-card .playing-card {
+    --card-w: 58px;
+    --card-h: 83px;
+  }
+  .showcase-chip .chip {
+    width: 25px;
+    height: 25px;
+  }
+  .chip-first {
+    bottom: 1%;
+  }
+  .twentyone-stamp strong {
+    font-size: 25px;
+  }
+  .entry-panel {
+    padding: 14px 18px;
+  }
+  .entry-heading h2 {
+    font-size: 20px;
+    margin-top: 4px;
+  }
+  .entry-heading > .overline {
+    font-size: 6px;
+  }
+  .entry-tabs {
+    margin-top: 9px;
+  }
+  .entry-tabs button {
+    padding: 5px;
+    font-size: 9px;
+  }
+  .entry-form {
+    margin-top: 9px;
+    gap: 8px;
+  }
+  .entry-form input {
+    padding: 6px 9px;
+    margin-top: 4px;
+  }
+  .entry-form label {
+    font-size: 8px;
+  }
+  .entry-form .button {
+    min-height: 31px;
+    font-size: 10px;
+  }
+  .entry-details {
+    margin: 9px 0;
+    padding-bottom: 8px;
+    gap: 7px 13px;
+  }
+  .entry-details > span {
+    font-size: 7px;
+  }
+  .learn-button {
+    font-size: 8px;
+  }
+  .learn-button > svg {
+    width: 12px;
+    height: 12px;
+  }
+  .dealer-options {
+    margin-bottom: 8px;
+  }
+  .dealer-options > button {
+    padding: 7px;
+  }
+  .settings-panel fieldset {
+    margin-top: 9px;
+  }
+  .settings-grid {
+    gap: 7px 10px;
+  }
+  .settings-grid select {
+    min-height: 25px;
+    padding: 4px 6px;
+    font-size: 9px;
+  }
+  .settings-grid label {
+    font-size: 7px;
+  }
+  .first-dealer {
+    margin-bottom: 7px;
+    font-size: 7px;
+  }
+  .first-dealer select {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+  .guest-seat .avatar {
+    width: 23px;
+    height: 23px;
+    font-size: 7px;
+  }
+  .guest-status {
+    font-size: 5px;
+    margin-bottom: 4px;
+  }
+  .guest-seat h3 {
+    font-size: 8px;
+    margin-top: 4px;
+  }
+  .guest-bankroll {
+    font-size: 7px;
+    margin-top: 3px;
+  }
+  .empty-avatar {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 4px;
+  }
+  .guest-seat {
+    padding: 5px 4px;
+  }
+  .panel-heading h2 {
+    font-size: 15px;
+  }
+  .guest-panel,
+  .settings-panel {
+    padding: 12px;
+  }
+  .lobby-content {
+    gap: 11px;
+  }
+  .lobby-screen {
+    grid-template-rows: minmax(0, 1fr) 34px;
+    gap: 6px;
+  }
+  .lobby-dock .button {
+    min-height: 31px;
+    font-size: 9px;
+  }
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 61px;
+    gap: 8px;
+  }
+  .felt-table {
+    --card-w: 35px;
+    --card-spread: 12px;
+  }
+  .seats-5,
+  .seats-6 {
+    --card-w: 30px;
+    --card-spread: 9px;
+  }
+  .dealer-zone {
+    --card-w: 30px;
+    --card-spread: 14px;
+    top: 12px;
+  }
+  .dealer-name {
+    font-size: 7px;
+    gap: 3px;
+    margin-bottom: 5px;
+  }
+  .dealer-name > span:last-child {
+    font-size: 5px;
+  }
+  .house-avatar,
+  .dealer-name .avatar {
+    display: none;
+  }
+  .dealer-score {
+    height: 15px;
+    margin-top: 3px;
+    font-size: 7px;
+  }
+  .table-center {
+    bottom: 9px;
+  }
+  .table-announcement > span:first-child {
+    font-size: 7px;
+  }
+  .table-announcement {
+    gap: 4px;
+  }
+  .player-seats {
+    bottom: 19px;
+  }
+  .seat-nameplate {
+    padding: 4px 5px;
+  }
+  .seat-nameplate strong {
+    font-size: 7px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 6px;
+    margin-top: 2px;
+  }
+  .hand-tabs {
+    height: 17px;
+  }
+  .table-corner-label {
+    top: 17px;
+    font-size: 4px;
+  }
+  .table-bottom-label {
+    font-size: 3px;
+    bottom: 6px;
+  }
+  .control-dock {
+    padding: 7px 12px;
+  }
+  .move-button {
+    padding: 9px 8px;
+  }
+  .your-bankroll strong {
+    font-size: 18px;
+  }
+  .move-context strong {
+    font-size: 10px;
+  }
+  .move-context > span {
+    font-size: 7px;
+  }
+  .chip-choices .chip.small {
+    width: 22px;
+    height: 22px;
+  }
+  .bet-picker label {
+    display: none;
+  }
+  .deal-button {
+    min-height: 34px;
+  }
+  .bet-stepper button,
+  .bet-stepper input {
+    height: 27px;
+  }
+  .round-controls .button {
+    min-height: 32px;
+  }
+  .game-dialog {
+    padding: 13px 20px;
+  }
+  .lesson-mark {
+    width: 45px;
+    height: 63px;
+    font-size: 19px;
+  }
+  .rules-body {
+    grid-template-columns: 53px 1fr;
+    gap: 0 15px;
+  }
+  .rules-body h2 {
+    font-size: 20px;
+  }
+  .rules-body > p {
+    font-size: 9px;
+    margin-top: 7px;
+  }
+  .lesson-detail {
+    font-size: 8px;
+    margin-top: 9px;
+    padding: 7px 9px;
+  }
+  .dialog-footer {
+    margin-top: 10px;
+    padding-top: 9px;
+  }
+  .score-dialog-content {
+    height: 132px;
+  }
+  .score-dialog .standing {
+    padding: 4px 0;
+  }
+  .score-dialog .avatar {
+    width: 22px;
+    height: 22px;
+  }
+  .score-dialog h2 {
+    font-size: 20px;
+  }
+  .score-dialog .segmented button {
+    padding: 6px;
+  }
+}
+/* Status has its own grid row, outside the card surface, at every breakpoint. */
+.game-main {
+  grid-template-rows: minmax(0, 1fr) 27px 96px;
+  gap: 8px;
+}
+.table-status-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 0 12px;
+}
+.table-status-strip .table-announcement {
+  color: var(--text);
+  min-width: 0;
+  min-height: 25px;
+}
+.table-status-strip .table-announcement.your-move {
+  color: var(--gold);
+}
+.table-status-strip .table-announcement > span:first-child {
+  font-size: 11px;
+}
+.table-status-strip .turn-clock {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+.table-status-strip .turn-clock.urgent {
+  color: var(--danger);
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+}
+.status-table-note {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+  color: var(--subtle);
+  white-space: nowrap;
+}
+.status-table-note svg {
+  width: 11px;
+  height: 11px;
+}
+.lounge-caption {
+  visibility: hidden;
+}
+@media (min-width: 1600px) and (min-height: 850px) {
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 30px 108px;
+    gap: 12px;
+  }
+}
+@media (max-width: 760px) {
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 25px 94px;
+    gap: 7px;
+  }
+}
+@media (max-width: 560px) {
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 25px 105px;
+    gap: 6px;
+  }
+  .table-status-strip {
+    justify-content: center;
+    padding: 0 5px;
+  }
+  .status-table-note {
+    display: none;
+  }
+  .table-status-strip .table-announcement > span:first-child {
+    font-size: 10px;
+  }
+}
+@media (max-height: 760px) and (min-width: 761px) {
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 25px 87px;
+    gap: 7px;
+  }
+}
+@media (max-height: 700px) and (max-width: 560px) and (orientation: portrait) {
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 23px 96px;
+    gap: 5px;
+  }
+}
+@media (max-height: 580px) and (min-width: 561px) {
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 22px 70px;
+    gap: 5px;
+  }
+  .table-status-strip .table-announcement > span:first-child {
+    font-size: 9px;
+  }
+  .status-table-note {
+    font-size: 7px;
+  }
+}
+@media (max-height: 410px) and (min-width: 561px) {
+  .game-main {
+    grid-template-rows: minmax(0, 1fr) 20px 61px;
+    gap: 4px;
+  }
+  .table-status-strip .table-announcement {
+    min-height: 20px;
+  }
+  .table-status-strip .table-announcement > span:first-child {
+    font-size: 8px;
+  }
+}
+/* Readable game typography. Compact screens page content instead of shrinking it. */
+.main-nav button {
+  font-size: 14px;
+}
+.virtual-badge {
+  font-size: 12px;
+}
+.button {
+  font-size: 14px;
+}
+.session-identity h1 {
+  font-size: 20px;
+}
+.room-code {
+  font-size: 13px;
+}
+.session-mode {
+  font-size: 12px;
+}
+.session-tools .button {
+  font-size: 12px;
+  min-height: 37px;
+}
+.overline {
+  font-size: 10px;
+}
+label,
+.field-label {
+  font-size: 13px;
+}
+input,
+select {
+  font-size: 16px;
+}
+.segmented button {
+  font-size: 13px;
+}
+.entry-heading p {
+  font-size: 14px;
+}
+.entry-form label {
+  font-size: 13px;
+}
+.entry-form input {
+  font-size: 16px;
+}
+.entry-form .button {
+  font-size: 14px;
+}
+.entry-details > span {
+  font-size: 12px;
+}
+.learn-button {
+  font-size: 12px;
+}
+.entry-footnote {
+  font-size: 11px;
+}
+.lounge-copy p {
+  font-size: 14px;
+}
+.club-label {
+  font-size: 11px;
+}
+.panel-heading h2 {
+  font-size: 26px;
+}
+.guest-seat h3 {
+  font-size: 15px;
+}
+.guest-seat h3 small {
+  font-size: 11px;
+}
+.guest-status {
+  font-size: 11px;
+}
+.guest-bankroll {
+  font-size: 14px;
+}
+.guest-bankroll small {
+  font-size: 11px;
+}
+.empty-seat strong {
+  font-size: 13px;
+}
+.empty-seat > span:last-child {
+  font-size: 11px;
+}
+.guest-invite > span {
+  font-size: 12px;
+}
+.guest-invite .button {
+  font-size: 12px;
+}
+.dealer-options strong {
+  font-size: 13px;
+}
+.dealer-options small {
+  font-size: 10px;
+}
+.settings-grid label,
+.first-dealer {
+  font-size: 12px;
+}
+.settings-grid select,
+.first-dealer select {
+  font-size: 14px;
+}
+.settings-note p {
+  font-size: 12px;
+}
+.lobby-dock .button {
+  font-size: 14px;
+}
+.lobby-ready > span {
+  font-size: 12px;
+}
+.waiting-badge {
+  font-size: 13px;
+}
+.dealer-name {
+  font-size: 13px;
+}
+.dealer-name > span:last-child {
+  font-size: 11px;
+}
+.dealer-score {
+  height: 26px;
+  font-size: 12px;
+}
+.seat-nameplate strong {
+  font-size: 13px;
+}
+.seat-nameplate strong small {
+  font-size: 10px;
+}
+.seat-nameplate > div > span {
+  font-size: 12px;
+}
+.seat-nameplate {
+  padding: 9px;
+}
+.seat-nameplate .avatar {
+  width: 30px;
+  height: 30px;
+  font-size: 9px;
+}
+.seat-bet {
+  font-size: 10px;
+}
+.hand-tabs {
+  height: 30px;
+}
+.hand-tabs > button {
+  height: 24px;
+  min-width: 30px;
+  font-size: 10px;
+}
+.hand-tabs > button span {
+  font-size: 9px;
+}
+.hand-score {
+  height: 25px;
+  font-size: 12px;
+}
+.seat-hand-area {
+  height: calc(var(--card-h) + 19px);
+}
+.hand-outcome {
+  font-size: 13px;
+}
+.table-corner-label {
+  font-size: 10px;
+}
+.table-status-strip .table-announcement > span:first-child {
+  font-size: 14px;
+}
+.turn-clock {
+  font-size: 12px;
+}
+.status-table-note {
+  font-size: 11px;
+}
+.bet-spot > span:not(.chip) {
+  font-size: 11px;
+}
+.bet-spot strong {
+  font-size: 12px;
+}
+.your-bankroll > div > span {
+  font-size: 12px;
+}
+.your-bankroll strong {
+  font-size: 28px;
+}
+.move-context strong {
+  font-size: 15px;
+}
+.move-context > span {
+  font-size: 11px;
+}
+.move-button strong {
+  font-size: 14px;
+}
+.move-button small {
+  font-size: 10px;
+}
+.move-button {
+  grid-template-columns: 15px 1fr;
+  padding: 10px 7px;
+  gap: 5px;
+}
+.move-button > svg {
+  width: 15px;
+  height: 15px;
+}
+.game-actions {
+  width: min(55%, 410px);
+}
+.bet-picker label {
+  font-size: 11px;
+}
+.bet-stepper input {
+  font-size: 15px;
+}
+.chip-choices > button {
+  font-size: 10px;
+}
+.deal-button {
+  font-size: 14px;
+}
+.round-controls .button,
+.dealer-action {
+  font-size: 13px;
+}
+.rail-heading h2 {
+  font-size: 15px;
+}
+.standing strong {
+  font-size: 12px;
+}
+.standing strong > small {
+  font-size: 10px;
+}
+.standing > b {
+  font-size: 13px;
+}
+.standing > div > span {
+  font-size: 10px;
+}
+.table-sidebar .activity-list {
+  overflow: hidden;
+}
+.table-sidebar .activity-list > p {
+  font-size: 12px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  position: relative;
+  padding-left: 11px;
+  flex-shrink: 0;
+}
+.table-sidebar .activity-list > p > span {
+  position: absolute;
+  left: 0;
+  top: 1px;
+}
+.rail-overview {
+  font-size: 12px;
+  margin-top: auto;
+}
+.rail-footnote {
+  font-size: 11px;
+}
+.table-sidebar:has(.standing:nth-child(5)) .activity-list > p:nth-child(n + 3) {
+  display: none;
+}
+.rules-body > p,
+.leave-dialog > p {
+  font-size: 15px;
+}
+.lesson-detail {
+  font-size: 12px;
+}
+.leave-explanation {
+  font-size: 13px;
+}
+.dialog-footer .button {
+  font-size: 13px;
+}
+.score-dialog .standing strong {
+  font-size: 14px;
+}
+.score-dialog .standing > b {
+  font-size: 15px;
+}
+.score-dialog .standing > div > span {
+  font-size: 11px;
+}
+.score-dialog .activity-list > p {
+  font-size: 14px;
+}
+.subtle,
+.pager > span {
+  font-size: 12px;
+}
+.settings-page-tabs {
+  display: none;
+}
+.seat-pagination {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 3;
+}
+.seat-pagination button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 27px;
+  border: 1px solid #c4bc7c55;
+  border-radius: 5px;
+  color: #efe3b1;
+  background: #123d2c;
+}
+.seat-pagination button:disabled {
+  opacity: 0.3;
+}
+.seat-pagination svg {
+  width: 13px;
+  height: 13px;
+}
+.seat-pagination > span {
+  font-size: 10px;
+  color: #e5deb2;
+}
+.seat-pagination small {
+  font-size: 8px;
+  color: #b7c499;
+}
+.felt-table:has(.seat-pagination) .table-corner-label {
+  display: none;
+}
+@media (max-height: 850px) {
+  .table-sidebar .rail-footnote {
+    display: none;
+  }
+  .table-sidebar .rail-overview {
+    margin-top: 12px;
+  }
+}
+@media (max-width: 1050px) {
+  .game-actions {
+    width: min(55%, 410px);
+  }
+  .move-context strong {
+    font-size: 14px;
+  }
+  .move-context > span {
+    font-size: 10px;
+  }
+  .move-button strong {
+    font-size: 13px;
+  }
+  .move-button small {
+    font-size: 8px;
+  }
+  .lounge-copy p {
+    font-size: 13px;
+  }
+  .club-label {
+    font-size: 9px;
+  }
+}
+@media (max-width: 760px) {
+  .main-nav button {
+    font-size: 12px;
+  }
+  .button {
+    font-size: 13px;
+  }
+  .session-identity h1 {
+    font-size: 18px;
+  }
+  .room-code {
+    font-size: 12px;
+  }
+  .session-tools .button {
+    font-size: 11px;
+  }
+  .lobby-mobile-tabs button {
+    font-size: 13px;
+  }
+  .lobby-mobile-tabs button > span {
+    font-size: 11px;
+  }
+  .panel-heading h2 {
+    font-size: 25px;
+  }
+  .guest-seat h3 {
+    font-size: 14px;
+  }
+  .guest-status {
+    font-size: 10px;
+  }
+  .guest-bankroll {
+    font-size: 13px;
+  }
+  .guest-invite > span {
+    font-size: 11px;
+  }
+  .dealer-options strong {
+    font-size: 13px;
+  }
+  .dealer-options small {
+    font-size: 10px;
+  }
+  .settings-grid label {
+    font-size: 12px;
+  }
+  .settings-grid select {
+    font-size: 15px;
+  }
+  .seat-nameplate .avatar {
+    width: 25px;
+    height: 25px;
+  }
+  .seat-nameplate strong {
+    font-size: 12px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 11px;
+  }
+  .seat-bet {
+    font-size: 9px;
+  }
+  .your-bankroll strong {
+    font-size: 25px;
+  }
+  .your-bankroll > div > span {
+    font-size: 11px;
+  }
+  .move-context strong {
+    font-size: 13px;
+  }
+  .move-context > span {
+    font-size: 10px;
+  }
+  .move-button strong {
+    font-size: 12px;
+  }
+  .move-button small {
+    font-size: 8px;
+  }
+}
+@media (max-width: 560px) {
+  .header-tools .icon-button {
+    width: 33px;
+    height: 33px;
+  }
+  .main-nav button {
+    width: 34px;
+    height: 33px;
+  }
+  .session-identity h1 {
+    font-size: 16px;
+  }
+  .room-code {
+    font-size: 11px;
+  }
+  .session-tools .table-exit {
+    font-size: 10px;
+  }
+  .session-tools .button {
+    min-height: 33px;
+    height: 33px;
+  }
+  .lobby-mobile-tabs button {
+    font-size: 12px;
+  }
+  .panel-heading h2 {
+    font-size: 22px;
+  }
+  .panel-heading .overline {
+    font-size: 9px;
+  }
+  .badge {
+    font-size: 11px;
+  }
+  .guest-seat h3 {
+    font-size: 12px;
+  }
+  .guest-seat h3 small {
+    font-size: 9px;
+  }
+  .guest-status {
+    font-size: 9px;
+  }
+  .guest-bankroll {
+    font-size: 12px;
+  }
+  .guest-bankroll small {
+    display: none;
+  }
+  .empty-seat strong {
+    font-size: 11px;
+  }
+  .empty-seat > span:last-child {
+    font-size: 9px;
+  }
+  .guest-invite > span {
+    font-size: 10px;
+  }
+  .guest-invite .button {
+    font-size: 11px;
+  }
+  .settings-note p {
+    font-size: 11px;
+  }
+  .dealer-options strong {
+    font-size: 12px;
+  }
+  .dealer-options small {
+    font-size: 9px;
+  }
+  .field-label,
+  .first-dealer {
+    font-size: 12px;
+  }
+  .settings-grid label {
+    font-size: 12px;
+  }
+  .settings-grid select,
+  .first-dealer select {
+    font-size: 15px;
+  }
+  .lobby-dock .button {
+    font-size: 13px;
+  }
+  .start-button {
+    min-width: 140px;
+  }
+  .waiting-badge {
+    font-size: 12px;
+  }
+  .dealer-name {
+    font-size: 12px;
+  }
+  .dealer-name > span:last-child {
+    font-size: 10px;
+  }
+  .dealer-score {
+    font-size: 11px;
+    height: 23px;
+  }
+  .playing-card .card-corner {
+    font-size: max(13px, calc(var(--card-w, 70px) * 0.25));
+  }
+  .seat-nameplate {
+    padding: 7px 5px;
+  }
+  .seat-nameplate .avatar {
+    display: none;
+  }
+  .seat-nameplate strong {
+    font-size: 12px;
+  }
+  .seat-nameplate strong > small {
+    font-size: 9px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+  .seat-hand-area {
+    height: calc(var(--card-h) + 18px);
+  }
+  .hand-score {
+    font-size: 11px;
+    height: 23px;
+  }
+  .hand-outcome {
+    font-size: 11px;
+  }
+  .hand-tabs {
+    height: 27px;
+  }
+  .hand-tabs > button {
+    font-size: 10px;
+    height: 24px;
+    min-width: 25px;
+  }
+  .hand-tabs > button > span {
+    font-size: 8px;
+  }
+  .hand-tabs:has(button:nth-child(4)) > button {
+    min-width: 18px;
+    padding: 0 4px;
+  }
+  .hand-tabs:has(button:nth-child(4)) > button > span {
+    display: none;
+  }
+  .seat-bet {
+    font-size: 9px;
+  }
+  .table-status-strip .table-announcement > span:first-child {
+    font-size: 13px;
+  }
+  .turn-clock {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+  .bet-spot > span:not(.chip) {
+    font-size: 9px;
+  }
+  .bet-spot strong {
+    font-size: 11px;
+  }
+  .your-bankroll > div > span {
+    font-size: 11px;
+  }
+  .your-bankroll strong {
+    font-size: 27px;
+  }
+  .move-context strong {
+    font-size: 12px;
+  }
+  .move-context > span {
+    font-size: 9px;
+  }
+  .game-actions {
+    width: 100%;
+  }
+  .move-button strong {
+    font-size: 12px;
+  }
+  .move-button > svg {
+    width: 15px;
+    height: 15px;
+  }
+  .move-button small {
+    display: none;
+  }
+  .round-controls .button,
+  .dealer-action {
+    font-size: 12px;
+  }
+  .results-dock .move-context strong {
+    font-size: 12px;
+  }
+  .move-context .profit,
+  .move-context .loss {
+    font-size: 10px;
+  }
+  .bet-picker label {
+    font-size: 10px;
+  }
+  .bet-stepper input {
+    font-size: 16px;
+  }
+  .chip-choices > button {
+    font-size: 11px;
+  }
+  .deal-button {
+    font-size: 13px;
+  }
+  .betting-dock .your-bankroll strong {
+    font-size: 25px;
+  }
+  .entry-heading h2 {
+    font-size: 27px;
+  }
+  .entry-heading p {
+    font-size: 13px;
+  }
+  .entry-tabs button {
+    font-size: 13px;
+  }
+  .entry-form label {
+    font-size: 13px;
+  }
+  .entry-form input {
+    font-size: 16px;
+  }
+  .entry-form .button {
+    font-size: 14px;
+  }
+  .entry-details > span {
+    font-size: 11px;
+  }
+  .learn-button {
+    font-size: 12px;
+  }
+  .entry-footnote {
+    font-size: 10px;
+  }
+  .lounge-copy p {
+    font-size: 12px;
+  }
+  .club-label {
+    font-size: 9px;
+  }
+  .lounge-screen:has(.code-input) {
+    grid-template-rows: minmax(0, 1fr) 16px;
+  }
+  .lounge-screen:has(.code-input) .lounge-scene {
+    display: none;
+  }
+  .rules-body > p,
+  .leave-dialog > p {
+    font-size: 14px;
+  }
+  .lesson-detail {
+    font-size: 12px;
+  }
+  .leave-explanation {
+    font-size: 12px;
+  }
+  .dialog-footer .button {
+    font-size: 12px;
+  }
+  .score-dialog .standing strong {
+    font-size: 13px;
+  }
+  .score-dialog .standing > b {
+    font-size: 14px;
+  }
+  .score-dialog .standing > div > span {
+    font-size: 10px;
+  }
+  .score-dialog .activity-list > p {
+    font-size: 13px;
+  }
+  .subtle {
+    font-size: 11px;
+  }
+}
+@media (max-width: 560px) and (max-height: 760px), (min-width: 561px) and (max-height: 480px) {
+  .settings-page-tabs {
+    display: flex;
+    margin-top: 16px;
+    padding: 3px;
+    flex-shrink: 0;
+  }
+  .settings-page-tabs button {
+    font-size: 12px;
+    padding: 7px;
+  }
+  .settings-dealer .settings-grid,
+  .settings-limits .dealer-settings {
+    display: none;
+  }
+  .settings-panel fieldset {
+    margin-top: 17px;
+  }
+  .settings-note {
+    margin-top: auto;
+  }
+  .dealer-options {
+    margin-bottom: 20px;
+  }
+  .settings-grid {
+    gap: 18px 13px;
+  }
+}
+@media (max-width: 560px) and (max-height: 700px) and (orientation: portrait) {
+  .lounge-screen {
+    grid-template-rows: minmax(0, 1fr) 14px;
+  }
+  .lounge-scene {
+    display: none;
+  }
+  .entry-panel {
+    padding: 20px;
+  }
+  .entry-heading p {
+    display: none;
+  }
+  .entry-heading h2 {
+    font-size: 25px;
+  }
+  .entry-tabs {
+    margin-top: 17px;
+  }
+  .entry-tabs button {
+    font-size: 12px;
+    padding: 9px;
+  }
+  .entry-form {
+    gap: 14px;
+    margin-top: 17px;
+  }
+  .entry-form label {
+    font-size: 13px;
+  }
+  .entry-form input {
+    min-height: 43px;
+  }
+  .entry-form .button {
+    min-height: 43px;
+    font-size: 14px;
+  }
+  .entry-details {
+    margin: 17px 0;
+    padding-bottom: 16px;
+  }
+  .entry-details > span {
+    font-size: 11px;
+  }
+  .entry-footnote {
+    margin-top: 17px;
+    font-size: 10px;
+  }
+  .learn-button {
+    font-size: 12px;
+  }
+  .guest-seat h3 {
+    font-size: 11px;
+  }
+  .guest-status {
+    font-size: 8px;
+  }
+  .guest-bankroll {
+    font-size: 11px;
+  }
+  .guest-seat .avatar {
+    width: 33px;
+    height: 33px;
+  }
+  .empty-seat strong {
+    font-size: 10px;
+  }
+  .empty-seat > span:last-child {
+    font-size: 8px;
+  }
+  .guest-invite > span {
+    font-size: 9px;
+  }
+  .guest-invite .button {
+    font-size: 10px;
+  }
+  .panel-heading h2 {
+    font-size: 21px;
+  }
+  .settings-note p {
+    font-size: 10px;
+  }
+  .dealer-options strong {
+    font-size: 12px;
+  }
+  .dealer-options small {
+    font-size: 9px;
+  }
+  .settings-grid label,
+  .field-label,
+  .first-dealer {
+    font-size: 12px;
+  }
+  .settings-grid select,
+  .first-dealer select {
+    font-size: 15px;
+    min-height: 36px;
+  }
+  .lobby-dock .button {
+    font-size: 12px;
+  }
+  .dealer-zone {
+    --card-w: 39px;
+  }
+  .dealer-name {
+    font-size: 11px;
+  }
+  .dealer-name > span:last-child {
+    font-size: 9px;
+  }
+  .dealer-score {
+    font-size: 10px;
+    height: 21px;
+  }
+  .seat-nameplate strong {
+    font-size: 11px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 10px;
+  }
+  .seat-bet {
+    font-size: 8px;
+  }
+  .your-bankroll strong {
+    font-size: 25px;
+  }
+  .move-context strong {
+    font-size: 11px;
+  }
+  .move-context > span {
+    font-size: 9px;
+  }
+}
+@media (max-width: 560px) and (max-height: 610px) and (orientation: portrait) {
+  .felt-table {
+    --card-w: 40px;
+    --card-spread: 15px;
+  }
+  .dealer-zone {
+    --card-w: 33px;
+    top: 18px;
+  }
+  .dealer-name {
+    margin-bottom: 6px;
+  }
+  .dealer-name .house-avatar,
+  .dealer-name .avatar {
+    display: none;
+  }
+  .dealer-score {
+    height: 18px;
+    margin-top: 4px;
+  }
+  .seat-hand-area {
+    height: calc(var(--card-h) + 15px);
+  }
+  .hand-tabs {
+    height: 25px;
+  }
+  .seat-nameplate {
+    padding: 5px;
+  }
+  .seat-nameplate strong {
+    font-size: 11px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 10px;
+  }
+  .hand-score {
+    font-size: 11px;
+    height: 21px;
+  }
+  .player-seats {
+    bottom: 21px;
+  }
+  .table-wordmark {
+    display: none;
+  }
+  .table-center {
+    display: none;
+  }
+  .entry-panel:has(.code-input) .entry-details {
+    display: none;
+  }
+  .entry-heading .overline {
+    display: none;
+  }
+  .entry-panel {
+    padding: 18px;
+  }
+  .entry-heading h2 {
+    margin-top: 0;
+  }
+  .entry-tabs {
+    margin-top: 14px;
+  }
+  .entry-form {
+    margin-top: 14px;
+  }
+  .entry-footnote {
+    margin-top: 13px;
+  }
+  .rules-body {
+    min-height: 0;
+  }
+  .lesson-mark {
+    display: none;
+  }
+  .rules-body > p {
+    font-size: 13px;
+  }
+  .lesson-detail {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .dialog-heading {
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 360px) {
+  .game-header {
+    padding: 0 11px;
+    gap: 7px;
+  }
+  .brand {
+    gap: 5px;
+  }
+  .brand > span:last-child {
+    font-size: 18px;
+  }
+  .brand-emblem {
+    width: 23px;
+    height: 28px;
+  }
+  .main-nav {
+    gap: 1px;
+  }
+  .main-nav button {
+    width: 29px;
+    height: 31px;
+  }
+  .header-tools .icon-button {
+    width: 29px;
+    height: 31px;
+  }
+  .header-tools {
+    gap: 1px;
+  }
+  .session-identity {
+    gap: 5px;
+  }
+  .session-identity h1 {
+    font-size: 14px;
+  }
+  .room-code {
+    font-size: 10px;
+    padding: 6px;
+  }
+  .session-tools .table-exit {
+    font-size: 9px;
+    padding: 0 7px;
+  }
+  .session-tools .table-exit svg {
+    display: none;
+  }
+  .control-dock {
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 6px 9px;
+  }
+  .your-bankroll strong {
+    font-size: 24px;
+  }
+  .your-bankroll > div > span {
+    font-size: 10px;
+  }
+  .move-button strong {
+    font-size: 11px;
+  }
+  .move-context > span {
+    font-size: 8px;
+  }
+  .move-context strong {
+    font-size: 11px;
+  }
+  .betting-dock {
+    grid-template-columns: 62px minmax(0, 1fr) 80px;
+    gap: 7px;
+  }
+  .bet-picker label {
+    display: none;
+  }
+  .bet-picker {
+    justify-content: center;
+  }
+  .betting-dock .your-bankroll strong {
+    font-size: 22px;
+  }
+  .deal-button {
+    font-size: 12px;
+  }
+  .chip-choices > button {
+    font-size: 10px;
+    padding: 4px 2px;
+  }
+  .guest-seat h3 {
+    font-size: 11px;
+  }
+  .guest-status {
+    font-size: 8px;
+  }
+  .guest-bankroll {
+    font-size: 11px;
+  }
+  .guest-seat h3 small {
+    display: none;
+  }
+  .panel-heading h2 {
+    font-size: 19px;
+  }
+  .guest-invite > span {
+    font-size: 8px;
+  }
+  .guest-invite .button {
+    font-size: 10px;
+  }
+  .lobby-dock .button {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+  .lobby-mobile-tabs button {
+    font-size: 11px;
+  }
+  .settings-page-tabs button {
+    font-size: 12px;
+  }
+}
+@media (max-height: 580px) and (min-width: 561px) {
+  .main-nav button {
+    font-size: 12px;
+  }
+  .session-identity h1 {
+    font-size: 16px;
+  }
+  .session-mode {
+    font-size: 10px;
+  }
+  .session-tools .button {
+    font-size: 11px;
+    min-height: 30px;
+  }
+  .dealer-name {
+    font-size: 10px;
+  }
+  .dealer-name > span:last-child {
+    font-size: 8px;
+  }
+  .dealer-score {
+    font-size: 10px;
+    height: 18px;
+  }
+  .seat-nameplate strong {
+    font-size: 11px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 10px;
+  }
+  .seat-nameplate strong small {
+    font-size: 8px;
+  }
+  .seat-nameplate {
+    padding: 5px 6px;
+  }
+  .hand-tabs {
+    height: 22px;
+  }
+  .seat-bet {
+    font-size: 8px;
+  }
+  .seat-hand-area {
+    height: calc(var(--card-h) + 15px);
+  }
+  .hand-score {
+    height: 20px;
+    font-size: 10px;
+  }
+  .hand-tabs > button {
+    font-size: 8px;
+    height: 19px;
+    min-width: 24px;
+  }
+  .hand-tabs > button > span {
+    font-size: 7px;
+  }
+  .hand-outcome {
+    font-size: 10px;
+  }
+  .table-status-strip .table-announcement > span:first-child {
+    font-size: 11px;
+  }
+  .turn-clock {
+    font-size: 10px;
+  }
+  .status-table-note {
+    font-size: 9px;
+  }
+  .table-corner-label {
+    font-size: 7px;
+  }
+  .your-bankroll strong {
+    font-size: 23px;
+  }
+  .your-bankroll > div > span {
+    font-size: 10px;
+  }
+  .move-context strong {
+    font-size: 13px;
+  }
+  .move-context > span {
+    font-size: 10px;
+  }
+  .move-button strong {
+    font-size: 13px;
+  }
+  .game-actions {
+    width: min(54%, 380px);
+  }
+  .move-button {
+    padding: 10px 7px;
+  }
+  .chip-choices > button > span:last-child {
+    font-size: 9px;
+  }
+  .bet-stepper input {
+    font-size: 16px;
+  }
+  .deal-button {
+    font-size: 13px;
+  }
+  .bet-picker label {
+    font-size: 10px;
+  }
+  .panel-heading h2 {
+    font-size: 20px;
+  }
+  .guest-seat h3 {
+    font-size: 11px;
+  }
+  .guest-bankroll {
+    font-size: 10px;
+  }
+  .guest-status {
+    font-size: 8px;
+  }
+  .guest-seat .avatar {
+    display: none;
+  }
+  .empty-avatar {
+    margin: 0;
+    width: 22px;
+    height: 22px;
+  }
+  .empty-seat strong {
+    font-size: 10px;
+  }
+  .settings-panel fieldset {
+    margin-top: 10px;
+  }
+  .settings-page-tabs {
+    margin-top: 10px;
+  }
+  .settings-page-tabs button {
+    font-size: 11px;
+    padding: 5px;
+  }
+  .settings-grid {
+    gap: 10px 12px;
+  }
+  .settings-grid label {
+    font-size: 11px;
+  }
+  .settings-grid select {
+    font-size: 13px;
+    padding: 6px;
+    margin-top: 5px;
+    min-height: 31px;
+  }
+  .dealer-options strong {
+    font-size: 12px;
+  }
+  .dealer-options small {
+    display: none;
+  }
+  .field-label,
+  .first-dealer {
+    font-size: 11px;
+  }
+  .first-dealer select {
+    font-size: 13px;
+    min-height: 30px;
+  }
+  .dealer-options {
+    margin-bottom: 12px;
+  }
+  .lobby-dock .button {
+    font-size: 12px;
+    min-height: 33px;
+  }
+  .entry-panel {
+    padding: 14px 19px;
+  }
+  .entry-heading h2 {
+    font-size: 23px;
+  }
+  .entry-heading .overline {
+    font-size: 8px;
+  }
+  .entry-tabs button {
+    font-size: 11px;
+  }
+  .entry-form label {
+    font-size: 11px;
+  }
+  .entry-form input {
+    font-size: 16px;
+    padding: 6px 9px;
+    min-height: 33px;
+  }
+  .entry-form .button {
+    font-size: 12px;
+    min-height: 33px;
+  }
+  .entry-details > span {
+    font-size: 10px;
+  }
+  .learn-button {
+    font-size: 10px;
+  }
+  .entry-details {
+    margin: 10px 0;
+    padding-bottom: 9px;
+  }
+  .rules-body > p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .lesson-detail {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .rules-body h2 {
+    font-size: 23px;
+  }
+  .dialog-footer .button {
+    font-size: 12px;
+  }
+  .score-dialog .standing strong {
+    font-size: 12px;
+  }
+  .score-dialog .standing > b {
+    font-size: 13px;
+  }
+  .score-dialog .standing > div > span {
+    font-size: 9px;
+  }
+  .score-dialog .activity-list > p {
+    font-size: 12px;
+  }
+  .leave-dialog > p {
+    font-size: 13px;
+  }
+  .leave-explanation {
+    font-size: 12px;
+  }
+}
+@media (max-height: 410px) and (min-width: 561px) {
+  .seat-nameplate strong {
+    font-size: 10px;
+  }
+  .seat-nameplate > div > span {
+    font-size: 9px;
+  }
+  .dealer-zone {
+    --card-w: 28px;
+  }
+  .dealer-name {
+    font-size: 9px;
+  }
+  .dealer-name > span:last-child {
+    font-size: 7px;
+  }
+  .seat-hand-area {
+    height: calc(var(--card-h) + 12px);
+  }
+  .hand-tabs {
+    height: 20px;
+  }
+  .hand-score {
+    height: 18px;
+    font-size: 9px;
+  }
+  .table-status-strip .table-announcement > span:first-child {
+    font-size: 10px;
+  }
+  .table-wordmark {
+    display: none;
+  }
+  .table-corner-label {
+    font-size: 6px;
+  }
+  .rules-body > p {
+    font-size: 11px;
+  }
+  .lesson-detail {
+    font-size: 10px;
+  }
+  .rules-body h2 {
+    font-size: 21px;
+  }
+  .score-dialog .standing strong {
+    font-size: 11px;
+  }
+  .score-dialog .standing > b {
+    font-size: 12px;
+  }
+  .score-dialog .standing > div > span {
+    font-size: 8px;
+  }
+  .score-dialog .activity-list > p {
+    font-size: 11px;
+  }
+}
+.table-center {
+  top: calc(50% - 45px);
+}
+.dialog-scrim {
+  grid-template-columns: minmax(0, 1fr);
+}
+.game-dialog {
+  width: min(490px, 100%);
+  min-width: 0;
+  justify-self: center;
+}
+.score-dialog {
+  width: min(520px, 100%);
+}
+.leave-dialog {
+  width: min(500px, 100%);
+}
+.score-dialog-content {
+  height: 210px;
+}
+@media (max-height: 580px) and (min-width: 561px) {
+  .game-dialog {
+    width: min(600px, 100%);
+  }
+  .score-dialog {
+    width: min(520px, 100%);
+  }
+  .leave-dialog {
+    width: min(500px, 100%);
+  }
+}
+@media (max-height: 580px) and (min-width: 561px) {
+  .score-dialog-content {
+    height: 132px;
+  }
+}
+.seat-pagination {
+  top: 76px;
+  left: 14px;
+  gap: 3px;
+}
+.seat-pagination > span {
+  font-size: 9px;
+}
+.seat-pagination small {
+  font-size: 8px;
+}
+@media (max-width: 560px) and (max-height: 610px) and (orientation: portrait) {
+  .guest-panel .panel-heading .overline {
+    display: none;
+  }
+  .guest-panel .panel-heading h2 {
+    margin-top: 0;
+    font-size: 19px;
+  }
+  .guest-seat {
+    padding: 6px 4px;
+  }
+  .guest-seat .avatar {
+    width: 28px;
+    height: 28px;
+  }
+  .guest-status {
+    margin-bottom: 5px;
+    flex-shrink: 0;
+  }
+  .guest-seat h3 {
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .guest-bankroll {
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .entry-panel:has(.code-input) .learn-button {
+    margin-top: 16px;
+  }
+}
+.casino-app {
+  grid-template-rows: var(--header-h) minmax(0, 1fr) 20px;
+}
+.creator-credit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 16px;
+  padding-bottom: 3px;
+}
+.creator-credit strong {
+  font-weight: 500;
+  color: var(--gold);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

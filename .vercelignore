@@ -1,0 +1,13 @@
+.git/
+.github/
+.data/
+.env*
+!.env.example
+artifacts/
+tests/
+test-results/
+coverage/
+*.log
+*.tsbuildinfo
+.agents/
+skills-lock.json
