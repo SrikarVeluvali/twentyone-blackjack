@@ -2,6 +2,8 @@
 
 Multiplayer blackjack, made by **Srikar Veluvali**. Built with Next.js App Router, React, TypeScript, and Motion. All chips are virtual.
 
+[Play Twentyone](https://twentyone-blackjack.vercel.app) · [GitHub repository](https://github.com/SrikarVeluvali/twentyone-blackjack)
+
 ## Play
 
 Create a private table, share its invite link or six-character code, configure the rules, and start. Each player begins with 5,000 chips. Play against the house or take turns as the dealer; bankrupt players are eliminated.
