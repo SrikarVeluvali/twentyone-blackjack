@@ -11,3 +11,4 @@ coverage/
 *.tsbuildinfo
 .agents/
 skills-lock.json
+docs/screenshots/

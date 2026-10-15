@@ -2,7 +2,29 @@
 
 Multiplayer blackjack, made by **Srikar Veluvali**. Built with Next.js App Router, React, TypeScript, and Motion. All chips are virtual.
 
-[Play Twentyone](https://twentyone-blackjack.vercel.app) · [GitHub repository](https://github.com/SrikarVeluvali/twentyone-blackjack)
+**Available to play at [blackjack.srikarveluvali.com](https://blackjack.srikarveluvali.com/).**
+
+[Play now](https://blackjack.srikarveluvali.com/) · [GitHub repository](https://github.com/SrikarVeluvali/twentyone-blackjack)
+
+## Screenshots
+
+### The lounge
+
+Create a private table or join friends with a room code.
+
+![Twentyone lounge with private table creation and Srikar Veluvali branding](docs/screenshots/lounge.png)
+
+### At the table
+
+Animated hands, visible turn timers, player chip balances, and quick game controls.
+
+![Desktop blackjack game showing the dealer, player hands, turn timer, and action controls](docs/screenshots/game-desktop.png)
+
+### On your phone
+
+The table and controls adapt to a compact screen.
+
+<img src="docs/screenshots/game-mobile.png" alt="Mobile blackjack game with readable cards and touch-friendly controls" width="320" />
 
 ## Play
 
@@ -67,6 +89,6 @@ npm run test:redis           # Optional live Redis checks using .env.local
 
 Set `TEST_URL` to test a deployed site. The smoke test creates temporary private rooms, plays with virtual chips, and leaves both seats. Redis tests use unique test keys and delete them afterward. GitHub Actions runs formatting, game/storage tests, a production build, type checking, and the local multiplayer API smoke test.
 
-Use `npm run format` before committing. Generated builds, local rooms, credentials, screenshots, and deployment metadata are excluded from Git.
+Use `npm run format` before committing. Generated builds, local rooms, credentials, temporary screenshots, and deployment metadata are excluded from Git. The screenshots published in this README are versioned in `docs/screenshots/`.
 
 Fonts are self-hosted DM Sans under the SIL Open Font License, included in `public/fonts/OFL.txt`. Source code is proprietary (`UNLICENSED`).
